@@ -1,0 +1,11 @@
+pages\PageObjectHalamanBeranda.class
+pages\PageObjectHalamanPersonal.class
+pages\BasePage.class
+pages\PageObjectHalamanLogin.class
+pages\PageObjectTransaksi.class
+utils\Utility.class
+utils\TestUtils.class
+pages\PageObjectHalamanAwal.class
+pages\PageObjectHalamanKategori.class
+reports\ExtentReportsDemo.class
+koneksi\Koneksi.class

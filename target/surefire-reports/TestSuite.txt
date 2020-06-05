@@ -1,0 +1,64 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 113.781 sec <<< FAILURE! - in TestSuite
+halamanAwalKodePos(Login)  Time elapsed: 7.22 sec  <<< FAILURE!
+java.lang.IllegalArgumentException: Can not set io.appium.java_client.android.AndroidElement field pages.PageObjectHalamanAwal.guideLogin1 to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167)
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171)
+	at sun.reflect.UnsafeObjectFieldAccessorImpl.set(UnsafeObjectFieldAccessorImpl.java:81)
+	at java.lang.reflect.Field.set(Field.java:764)
+	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:117)
+	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
+	at pages.BasePage.<init>(BasePage.java:16)
+	at pages.PageObjectHalamanAwal.<init>(PageObjectHalamanAwal.java:10)
+	at Login.halamanAwalKodePos(Login.java:27)
+
+loginSuccessfull(Login)  Time elapsed: 5.002 sec  <<< FAILURE!
+java.lang.IllegalArgumentException: Can not set io.appium.java_client.android.AndroidElement field pages.PageObjectHalamanLogin.btnLogin to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167)
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171)
+	at sun.reflect.UnsafeObjectFieldAccessorImpl.set(UnsafeObjectFieldAccessorImpl.java:81)
+	at java.lang.reflect.Field.set(Field.java:764)
+	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:117)
+	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
+	at pages.BasePage.<init>(BasePage.java:16)
+	at pages.PageObjectHalamanLogin.<init>(PageObjectHalamanLogin.java:11)
+	at Login.loginSuccessfull(Login.java:103)
+
+halamanAwalKodePos(UbahDataPersonalTestCase)  Time elapsed: 7.002 sec  <<< FAILURE!
+java.lang.IllegalArgumentException: Can not set io.appium.java_client.android.AndroidElement field pages.PageObjectHalamanAwal.guideLogin1 to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167)
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171)
+	at sun.reflect.UnsafeObjectFieldAccessorImpl.set(UnsafeObjectFieldAccessorImpl.java:81)
+	at java.lang.reflect.Field.set(Field.java:764)
+	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:117)
+	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
+	at pages.BasePage.<init>(BasePage.java:16)
+	at pages.PageObjectHalamanAwal.<init>(PageObjectHalamanAwal.java:10)
+	at UbahDataPersonalTestCase.halamanAwalKodePos(UbahDataPersonalTestCase.java:32)
+
+loginSuccessfull(UbahDataPersonalTestCase)  Time elapsed: 5 sec  <<< FAILURE!
+java.lang.IllegalArgumentException: Can not set io.appium.java_client.android.AndroidElement field pages.PageObjectHalamanLogin.btnLogin to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167)
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171)
+	at sun.reflect.UnsafeObjectFieldAccessorImpl.set(UnsafeObjectFieldAccessorImpl.java:81)
+	at java.lang.reflect.Field.set(Field.java:764)
+	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:117)
+	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
+	at pages.BasePage.<init>(BasePage.java:16)
+	at pages.PageObjectHalamanLogin.<init>(PageObjectHalamanLogin.java:11)
+	at UbahDataPersonalTestCase.loginSuccessfull(UbahDataPersonalTestCase.java:56)
+
+halamanEditProfil(UbahDataPersonalTestCase)  Time elapsed: 5.005 sec  <<< FAILURE!
+java.lang.IllegalArgumentException: Can not set io.appium.java_client.android.AndroidElement field pages.PageObjectHalamanPersonal.btnHalamanPersonal to org.openqa.selenium.remote.RemoteWebElement$$EnhancerByCGLIB$$d27c0df4
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167)
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171)
+	at sun.reflect.UnsafeObjectFieldAccessorImpl.set(UnsafeObjectFieldAccessorImpl.java:81)
+	at java.lang.reflect.Field.set(Field.java:764)
+	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:117)
+	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
+	at pages.BasePage.<init>(BasePage.java:16)
+	at pages.PageObjectHalamanPersonal.<init>(PageObjectHalamanPersonal.java:10)
+	at UbahDataPersonalTestCase.halamanEditProfil(UbahDataPersonalTestCase.java:89)
+

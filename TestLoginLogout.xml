@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="false">
+    <test verbose="2" preserve-order="true" name="D:/Test/OtomasiTesting">
+        <classes>
+            <class name="Login">
+                <methods>
+                    <include name="halamanAwalKodePos"></include>
+<!--                    <include name="loginInvalidUserID"></include>-->
+<!--                    <include name="loginInvalidPassword"></include>-->
+                    <include name="loginSuccessfull"></include>
+                    <include name="logOut"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

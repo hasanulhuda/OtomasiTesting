@@ -1,0 +1,33 @@
+pipeline {
+
+    agent any
+    tools {
+        maven 'Maven 3.6.3'
+    }
+    stages {
+        stage('Compile stage') {
+            steps {
+                bat "mvn clean compile"
+        }
+    }
+         stage('testing stage') {
+             steps {
+                bat "mvn clean install test"
+        }
+    }
+         stage('deployment stage') {
+              steps {
+                bat ""
+        }
+    }
+  }
+  post {
+          always {
+              junit '**/target/extent-reports/*.xml'
+          }
+          always {
+              mail to: nulnuldaa@gmail.com, subject: 'The Pipeline failed :('
+          }
+      }
+
+}
