@@ -1,5 +1,4 @@
 pipeline {
-
     agent any
     tools {
         maven 'Maven 3.6.3'
@@ -21,13 +20,3 @@ pipeline {
         }
     }
   }
-  post {
-          always {
-              junit '**/target/extent-reports/*.xml'
-          }
-          always {
-              mail to: nulnuldaa@gmail.com, subject: 'The Pipeline failed :('
-          }
-      }
-
-}
