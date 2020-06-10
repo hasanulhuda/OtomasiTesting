@@ -30,7 +30,7 @@ public class ExtentReportsDemo {
         String File = "Automation";
         String fileName=d.toString().replace(":", "_").replace(" ", "_")+".html";
 //        htmlReporter =new ExtentHtmlReporter("D:/Test/OtomasiTesting/target/extent-reports/"+File+"_"+fileName);
-        htmlReporter =new ExtentHtmlReporter("D:/Test/OtomasiTesting/target/surefire-reports/"+File+".html");
+        htmlReporter =new ExtentHtmlReporter("D:/Test/OtomasiTesting/target/extent-reports/"+File+".html");
         htmlReporter.loadXMLConfig(new File(System.getProperty("user.dir")+"/src/extent-config.xml"));
 
         // initialize ExtentReports and attach the HtmlReporter
