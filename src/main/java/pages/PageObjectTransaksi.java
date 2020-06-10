@@ -9,8 +9,12 @@ public class PageObjectTransaksi extends BasePage{
     public PageObjectTransaksi(AndroidDriver driver){
         super(driver);
     }
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.ImageView[1]")
-    private AndroidElement btnProductDetail;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.TextView[1]")
+    private AndroidElement btnProductDetailToko2;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.TextView[1]")
+    private AndroidElement btnProductDetailToko1;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.TextView[1]")
+    private AndroidElement btnProductDetailKlik1;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView")
     private AndroidElement guideProductDetail;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView")
@@ -31,15 +35,28 @@ public class PageObjectTransaksi extends BasePage{
     private AndroidElement listCIMBNiagaRekeningPonsel;
     //===================== Metode Pembayaran CIMB Rekening Ponsel ======================//
 
-    @AndroidFindBy(id = "android:id/tokenRekPon1")
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"android:id/tokenRekPon1\")")
     private AndroidElement insertTokenRekeningPonsel;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View[3]/android.widget.EditText")
+    private AndroidElement insertTokenRekeningPonselXPath;
     @AndroidFindBy(id = "android:id/payButton")
     private AndroidElement btnPayCIMBRekPon;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[3]/android.widget.Button")
+    private AndroidElement btnPayCIMBRekPonXPath;
 
 
-    public void clickDetailProduct() throws InterruptedException{
-        waitForVisibility(btnProductDetail);
-        btnProductDetail.click();
+
+    public void clickDetailProductToko2() throws InterruptedException{
+        waitForVisibility(btnProductDetailToko2);
+        btnProductDetailToko2.click();
+    }
+    public void clickDetailProductToko1() throws InterruptedException{
+        waitForVisibility(btnProductDetailToko1);
+        btnProductDetailToko1.click();
+    }
+    public void clickDetailProductKlik1() throws InterruptedException{
+        waitForVisibility(btnProductDetailKlik1);
+        btnProductDetailKlik1.click();
     }
     public void clickGuideCariTokoygMenjual() throws InterruptedException{
         waitForVisibility(guideProductDetail);
@@ -77,12 +94,24 @@ public class PageObjectTransaksi extends BasePage{
         waitForVisibility(insertTokenRekeningPonsel);
         sendKeys(insertTokenRekeningPonsel, tokenRekeningPonsel);
     }
+    public void setInsertTokenRekeningPonselXPath(String tokenRekeningPonselXPath) throws InterruptedException{
+        waitForVisibility(insertTokenRekeningPonselXPath);
+        sendKeys(insertTokenRekeningPonselXPath, tokenRekeningPonselXPath);
+    }
     public void clickKolomTokenRekeningPonsel() throws InterruptedException{
         waitForVisibility(insertTokenRekeningPonsel);
         insertTokenRekeningPonsel.click();
     }
+    public void clickKolomTokenRekeningPonselXPath() throws InterruptedException{
+        waitForVisibility(insertTokenRekeningPonselXPath);
+        insertTokenRekeningPonselXPath.click();
+    }
     public void clickPayButtonCIMBRekPon() throws InterruptedException{
         waitForVisibility(btnPayCIMBRekPon);
         btnPayCIMBRekPon.click();
+    }
+    public void clickPayButtonCIMBRekPonXPath() throws InterruptedException{
+        waitForVisibility(btnPayCIMBRekPonXPath);
+        btnPayCIMBRekPonXPath.click();
     }
 }

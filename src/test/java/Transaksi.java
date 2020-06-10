@@ -15,7 +15,7 @@ public class Transaksi extends ExtentReportsDemo {
     AndroidDriver driver = Utility.getAndroidDriver();
 
     String user = "0895338021090", kodepos = "15155", password ="tapaukeyi";
-    String productid ="Kopi Kapal Api";
+    String productid ="Cemilan Kacang";
 
     @Test(priority = 1)
     public void halamanAwalKodePos(){
@@ -86,7 +86,9 @@ public class Transaksi extends ExtentReportsDemo {
             log.log(Status.PASS,"pilih produk teratas dari daftar pencarian");
 
             PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
-            pageObjectTransaksi.clickDetailProduct();
+            pageObjectTransaksi.clickDetailProductToko2();
+//            pageObjectTransaksi.clickDetailProductToko1();
+//            pageObjectTransaksi.clickDetailProductKlik1();
             log.log(Status.PASS,"klik untuk melihat detail produk");
             pageObjectTransaksi.clickGuideCariTokoygMenjual();
             log.log(Status.PASS,"tap 'Mengerti' untuk panduan pencarian toko yang menjual produk");
@@ -131,7 +133,7 @@ public class Transaksi extends ExtentReportsDemo {
         try{
             PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
             //===================== SCROLL TO TEXT ======================//
-            Thread.sleep(5000);
+            Thread.sleep(10000);
             driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"Rekening Ponsel\").instance(0))"));
             //===================== SCROLL TO TEXT ======================//
             log.log(Status.PASS,"melakukan Scroll hingga 'CIMB Rekening POnsel' tampil pada Tampilan Layar");
@@ -139,14 +141,17 @@ public class Transaksi extends ExtentReportsDemo {
             Thread.sleep(4000);
             pageObjectTransaksi.clickMetodePembayaranCIMBNiagaRekeningPonsel();
             log.log(Status.PASS,"klik metode pembayaran menggunakan CIMB Rekening Ponsel");
-            pageObjectTransaksi.clickKolomTokenRekeningPonsel();
+//            pageObjectTransaksi.clickKolomTokenRekeningPonsel();
+            pageObjectTransaksi.clickKolomTokenRekeningPonselXPath();
             log.log(Status.PASS,"klik kolom untuk melakukan pengisian token RekPon");
-            pageObjectTransaksi.setInsertTokenRekeningPonsel("000000");
+//            pageObjectTransaksi.setInsertTokenRekeningPonsel("000000");
+            pageObjectTransaksi.setInsertTokenRekeningPonselXPath("000000");
             log.log(Status.PASS,"insert token Rekening Ponsel");
             Thread.sleep(4000);
             driver.hideKeyboard();
             Thread.sleep(4000);
-            pageObjectTransaksi.clickPayButtonCIMBRekPon();
+//            pageObjectTransaksi.clickPayButtonCIMBRekPon();
+            pageObjectTransaksi.clickPayButtonCIMBRekPonXPath();
             log.log(Status.PASS,"klik setuju melakukan pembayaran menggunakan Rekening Ponsel");
         }catch (InterruptedException e){
             e.printStackTrace();
