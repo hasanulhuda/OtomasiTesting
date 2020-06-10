@@ -6,8 +6,8 @@
             <class name="Login">
                 <methods>
                     <include name="halamanAwalKodePos"></include>
-<!--                    <include name="loginInvalidUserID"></include>-->
-<!--                    <include name="loginInvalidPassword"></include>-->
+                    <include name="loginInvalidUserID"></include>
+                    <include name="loginInvalidPassword"></include>
                     <include name="loginSuccessfull"></include>
                     <include name="logOut"></include>
                 </methods>

@@ -101,7 +101,7 @@ public class Login extends ExtentReportsDemo {
         try {
             Thread.sleep(5000);
             PageObjectHalamanLogin pageObjectHalamanLogin = new PageObjectHalamanLogin(driver);
-            pageObjectHalamanLogin.clickPilihanLogin();
+//            pageObjectHalamanLogin.clickPilihanLogin();
 //            Thread.sleep(3000);
             pageObjectHalamanLogin.setInsertUserID(user);
             log.log(Status.PASS,"insert valid User");
