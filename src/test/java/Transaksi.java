@@ -93,6 +93,15 @@ public class Transaksi extends ExtentReportsDemo {
             pageObjectTransaksi.clickGuideCariTokoygMenjual();
             log.log(Status.PASS,"tap 'Mengerti' untuk panduan pencarian toko yang menjual produk");
             pageObjectTransaksi.clickButtonBeliProduct();
+            Thread.sleep(5000);
+            pageObjectTransaksi.clickButtonBeliProduct();
+            Thread.sleep(5000);
+            pageObjectTransaksi.clickButtonBeliProduct();
+            Thread.sleep(5000);
+            pageObjectTransaksi.clickButtonBeliProduct();
+            Thread.sleep(5000);
+            pageObjectTransaksi.clickButtonBeliProduct();
+            Thread.sleep(5000);
             log.log(Status.PASS,"klik tombol beli untuk menambahkan produk kedalam keranjang belanja");
             Thread.sleep(3000);
             driver.navigate().back();
