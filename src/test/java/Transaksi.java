@@ -15,7 +15,7 @@ public class Transaksi extends ExtentReportsDemo {
     AndroidDriver driver = Utility.getAndroidDriver();
 
     String user = "0895338021090", kodepos = "15155", password ="tapaukeyi";
-    String productid ="Cemilan Kacang";
+    String productid ="Deterjen Rinso";
 
     @Test(priority = 1)
     public void halamanAwalKodePos(){
@@ -92,12 +92,6 @@ public class Transaksi extends ExtentReportsDemo {
             log.log(Status.PASS,"klik untuk melihat detail produk");
             pageObjectTransaksi.clickGuideCariTokoygMenjual();
             log.log(Status.PASS,"tap 'Mengerti' untuk panduan pencarian toko yang menjual produk");
-            pageObjectTransaksi.clickButtonBeliProduct();
-            Thread.sleep(5000);
-            pageObjectTransaksi.clickButtonBeliProduct();
-            Thread.sleep(5000);
-            pageObjectTransaksi.clickButtonBeliProduct();
-            Thread.sleep(5000);
             pageObjectTransaksi.clickButtonBeliProduct();
             Thread.sleep(5000);
             pageObjectTransaksi.clickButtonBeliProduct();
