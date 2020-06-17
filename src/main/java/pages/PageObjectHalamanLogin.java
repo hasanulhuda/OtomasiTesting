@@ -10,6 +10,17 @@ public class PageObjectHalamanLogin extends BasePage{
     public PageObjectHalamanLogin(AndroidDriver driver){
         super(driver);
     }
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[4]/android.widget.TextView")
+    private AndroidElement btnHalamanLogin;
+
+    public void clickHalamanLogin() throws InterruptedException{
+        waitForVisibility(btnHalamanLogin);
+        btnHalamanLogin.click();
+    }
+
+//region 1. Login
+    /*-------------------- Login ---------------------------*/
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView[2]")
     private AndroidElement btnLogin;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.EditText")
@@ -24,11 +35,6 @@ public class PageObjectHalamanLogin extends BasePage{
     private AndroidElement errTxt;
     @AndroidFindBy(id = "android:id/button1")
     private AndroidElement btnValidasiPass;
-
-    /*-------------------- Registrasi ---------------------------*/
-
-    /*-------------------- Registrasi ---------------------------*/
-
 
     public void clickPilihanLogin() throws InterruptedException{
         waitForVisibility(btnLogin);
@@ -61,4 +67,13 @@ public class PageObjectHalamanLogin extends BasePage{
         waitForVisibility(btnValidasiPass);
         btnValidasiPass.click();
     }
+    /*-------------------- Login ---------------------------*/
+    //endregion
+
+//region 2. Registrasi
+    /*-------------------- Registrasi ---------------------------*/
+
+    /*-------------------- Registrasi ---------------------------*/
+//endregion
+
 }

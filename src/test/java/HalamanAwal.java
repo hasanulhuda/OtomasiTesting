@@ -63,7 +63,9 @@ public class HalamanAwal extends ExtentReportsDemo {
             pageObjectHalamanAwal.clickPilihanTeratasKelurahan();
             log.log(Status.PASS,"tampilan teratas untuk provinsi yang dicari");
             Thread.sleep(5000);
-            pageObjectHalamanAwal.clickHalamanLogin();
+
+            PageObjectHalamanLogin pageObjectHalamanLogin = new PageObjectHalamanLogin(driver);
+            pageObjectHalamanLogin.clickHalamanLogin();
             log.log(Status.PASS,"Memilih Lokasi berdasar Kode Wilayah Berhasil");
         }catch (InterruptedException e){
             e.printStackTrace();

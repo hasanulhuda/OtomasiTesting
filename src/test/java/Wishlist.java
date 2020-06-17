@@ -32,9 +32,10 @@ public class Wishlist extends ExtentReportsDemo {
             log.log(Status.PASS,"inputan untuk mencari Wilayah Menggunakan Kode POS");
             pageObjectHalamanAwal.clickPilihanKodePos();
             log.log(Status.PASS,"tampilan teratas untuk Wilayah yang dicari");
-            pageObjectHalamanAwal.clickHalamanLogin();
-            log.log(Status.PASS,"Memilih Lokasi berdasar Kode Wilayah Berhasil");
 
+            PageObjectHalamanLogin pageObjectHalamanLogin = new PageObjectHalamanLogin(driver);
+            pageObjectHalamanLogin.clickHalamanLogin();
+            log.log(Status.PASS,"Memilih Lokasi berdasar Kode Wilayah Berhasil");
         }catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -98,7 +99,16 @@ public class Wishlist extends ExtentReportsDemo {
             log.log(Status.PASS,"Tap untuk Menambahkan produk kedalam wishlist");
             Thread.sleep(3000);
             driver.navigate().back();
-            Thread.sleep(3000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 5)
+    public void goingToHalamanWishlist(){
+        try{
+            Thread.sleep(5000);
+            PageObjectWishlist pageObjectWishlist = new PageObjectWishlist(driver);
             pageObjectWishlist.clickHalamanWishlist();
             log.log(Status.PASS,"tap untuk pindah ke Halaman Wishlist");
         }catch (Exception e){

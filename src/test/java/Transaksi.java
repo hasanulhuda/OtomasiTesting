@@ -33,7 +33,9 @@ public class Transaksi extends ExtentReportsDemo {
             log.log(Status.PASS,"inputan untuk mencari Wilayah Menggunakan Kode POS");
             pageObjectHalamanAwal.clickPilihanKodePos();
             log.log(Status.PASS,"tampilan teratas untuk Wilayah yang dicari");
-            pageObjectHalamanAwal.clickHalamanLogin();
+
+            PageObjectHalamanLogin pageObjectHalamanLogin = new PageObjectHalamanLogin(driver);
+            pageObjectHalamanLogin.clickHalamanLogin();
             log.log(Status.PASS,"Memilih Lokasi berdasar Kode Wilayah Berhasil");
 
         }catch (InterruptedException e){
@@ -109,7 +111,7 @@ public class Transaksi extends ExtentReportsDemo {
     }
 
     @Test(priority = 4)
-    public void checkOut(){
+    public void checkOutToko(){
         try {
         PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
         pageObjectTransaksi.clickShoppingCart();
@@ -126,6 +128,34 @@ public class Transaksi extends ExtentReportsDemo {
         pageObjectTransaksi.clickKonfirmasiAlamatPengiriman();
         log.log(Status.PASS,"klik lanjut jika sudah melakukan konfirmasi alamat pengiriman");
 
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 4)
+    public void checkOutKlik(){
+        try {
+            PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
+            pageObjectTransaksi.clickShoppingCart();
+            log.log(Status.PASS,"klik icon shopping cart untuk pindah ke Halaman Pembayaran");
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickOpenDetailPembayaran();
+            log.log(Status.PASS,"klik list view untuk melihat detail pembayaran");
+            Thread.sleep(5000);
+            pageObjectTransaksi.clickCloseDetailPembayaran();
+            log.log(Status.PASS,"klik listview untuk menutup detail pembayaran");
+            pageObjectTransaksi.clickKonfirmasiBarangBelanjaan();
+            log.log(Status.PASS,"Barang Belanjaan Telah dikonfirmasi");
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickListDaftarAlamatUser();
+            log.log(Status.PASS,"Daftar Alamat berhasil ditampilkan");
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickPilihAlamatUntukPengiriman();
+            log.log(Status.PASS,"Alamat Pengiriman Telah dipilih");
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickKonfirmasiAlamatPengiriman();
+            log.log(Status.PASS,"Alamat Berhasil dikonfirmasi");
         } catch (InterruptedException e){
             e.printStackTrace();
         }

@@ -14,15 +14,41 @@ public class PageObjectHalamanAwal extends BasePage {
     private AndroidElement guideLogin1;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.view.ViewGroup/android.widget.TextView")
     private AndroidElement guideLogin2;
+
+    public void clickOnGuide1() throws InterruptedException {
+        waitForVisibility(guideLogin1);
+        guideLogin1.click();
+    }
+    public void clickOnGuide2() throws InterruptedException {
+        waitForVisibility(guideLogin2);
+        guideLogin2.click();
+    }
+
+//region 1. Lokasi by Kode POS
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[4]/android.widget.ImageView")
     private AndroidElement btnKodePos;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.EditText")
     private AndroidElement insertKodePos;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView")
     private AndroidElement btnTapKodePos;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[4]/android.widget.TextView")
-    private AndroidElement btnHalamanLogin;
 
+    //===================== Elemen Milik Kode POS =====================//
+    public void clickButtonKodePos() throws InterruptedException {
+        waitForVisibility(btnKodePos);
+        btnKodePos.click();
+    }
+    public void setInsertKodePos(String kodePos) throws InterruptedException{
+        waitForVisibility(insertKodePos);
+        sendKeys(insertKodePos,kodePos);
+    }
+    public void clickPilihanKodePos() throws InterruptedException{
+        waitForVisibility(btnTapKodePos);
+        btnTapKodePos.click();
+    }
+    //===================== Elemen Milik Kode POS =====================//
+//endregion
+
+//region 2. Lokasi by Kode Wilayah
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView")
     private AndroidElement btnKodeWilayah;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.EditText")
@@ -41,32 +67,6 @@ public class PageObjectHalamanAwal extends BasePage {
     private AndroidElement insertKelurahan;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView")
     private AndroidElement btnKelurahan;
-
-
-    public void clickOnGuide1() throws InterruptedException {
-        waitForVisibility(guideLogin1);
-        guideLogin1.click();
-    }
-
-    public void clickOnGuide2() throws InterruptedException {
-        waitForVisibility(guideLogin2);
-        guideLogin2.click();
-    }
-
-    //===================== Elemen Milik Kode POS =====================//
-    public void clickButtonKodePos() throws InterruptedException {
-        waitForVisibility(btnKodePos);
-        btnKodePos.click();
-    }
-    public void setInsertKodePos(String kodePos) throws InterruptedException{
-        waitForVisibility(insertKodePos);
-        sendKeys(insertKodePos,kodePos);
-    }
-    public void clickPilihanKodePos() throws InterruptedException{
-        waitForVisibility(btnTapKodePos);
-        btnTapKodePos.click();
-    }
-    //===================== Elemen Milik Kode POS =====================//
 
     //===================== Elemen Milik Kode Wilayah =====================//
     public void clickButtonKodeWilayah() throws InterruptedException{
@@ -105,8 +105,6 @@ public class PageObjectHalamanAwal extends BasePage {
         btnKelurahan.click();
     }
     //===================== Elemen Milik Kode Wilayah =====================//
-    public void clickHalamanLogin() throws InterruptedException{
-        waitForVisibility(btnHalamanLogin);
-        btnHalamanLogin.click();
-    }
+//endregion
+
 }

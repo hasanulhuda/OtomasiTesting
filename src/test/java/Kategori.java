@@ -30,7 +30,9 @@ public class Kategori extends ExtentReportsDemo {
             log.log(Status.PASS,"inputan untuk mencari Wilayah Menggunakan Kode POS");
             pageObjectHalamanAwal.clickPilihanKodePos();
             log.log(Status.PASS,"tampilan teratas untuk Wilayah yang dicari");
-            pageObjectHalamanAwal.clickHalamanLogin();
+
+            PageObjectHalamanLogin pageObjectHalamanLogin = new PageObjectHalamanLogin(driver);
+            pageObjectHalamanLogin.clickHalamanLogin();
             log.log(Status.PASS,"Memilih Lokasi berdasar Kode Wilayah Berhasil");
         }catch (InterruptedException e){
             e.printStackTrace();
