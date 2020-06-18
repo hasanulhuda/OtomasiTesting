@@ -18,7 +18,7 @@ public class Utility {
         desiredCapabilites.setCapability("deviceName","emulator-5554");
         desiredCapabilites.setCapability("automationName", "UiAutomator2");
         desiredCapabilites.setCapability("appPackage","com.indomaret.klikindomaret");
-        desiredCapabilites.setCapability("appActivity",".default");
+        desiredCapabilites.setCapability("appActivity",".MainActivity");
         driver = new AndroidDriver(new URL("http:127.0.0.1:4723/wd/hub"),desiredCapabilites);
 
         } catch (Exception e){

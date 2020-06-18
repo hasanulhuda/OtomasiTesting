@@ -113,6 +113,7 @@ public class Transaksi extends ExtentReportsDemo {
     @Test(priority = 4)
     public void checkOutToko(){
         try {
+        Thread.sleep(5000);
         PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
         pageObjectTransaksi.clickShoppingCart();
         log.log(Status.PASS,"klik icon shopping cart untuk pindah ke Halaman Pembayaran");
@@ -124,6 +125,9 @@ public class Transaksi extends ExtentReportsDemo {
         log.log(Status.PASS,"klik listview untuk menutup detail pembayaran");
         pageObjectTransaksi.clickKonfirmasiBarangBelanjaan();
         log.log(Status.PASS,"klik lanjut untuk konfirmasi barang belanjaan");
+        Thread.sleep(4000);
+        pageObjectTransaksi.pilihAllowPermissionLocation();
+        log.log(Status.PASS,"aplikasi telah diizinkan untuk mengakses lokasi pengguna");
         Thread.sleep(6000);
         pageObjectTransaksi.clickKonfirmasiAlamatPengiriman();
         log.log(Status.PASS,"klik lanjut jika sudah melakukan konfirmasi alamat pengiriman");
@@ -147,6 +151,9 @@ public class Transaksi extends ExtentReportsDemo {
             log.log(Status.PASS,"klik listview untuk menutup detail pembayaran");
             pageObjectTransaksi.clickKonfirmasiBarangBelanjaan();
             log.log(Status.PASS,"Barang Belanjaan Telah dikonfirmasi");
+            Thread.sleep(4000);
+            pageObjectTransaksi.pilihAllowPermissionLocation();
+            log.log(Status.PASS,"aplikasi telah diizinkan untuk mengakses lokasi pengguna");
             Thread.sleep(6000);
             pageObjectTransaksi.clickListDaftarAlamatUser();
             log.log(Status.PASS,"Daftar Alamat berhasil ditampilkan");
@@ -187,6 +194,134 @@ public class Transaksi extends ExtentReportsDemo {
             pageObjectTransaksi.clickPayButtonCIMBRekPonXPath();
             log.log(Status.PASS,"klik setuju melakukan pembayaran menggunakan Rekening Ponsel");
         }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 5)
+    public void pembayaranVirtualAccountBCA(){
+        try{
+            PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
+            //===================== SCROLL TO TEXT ======================//
+            Thread.sleep(20000);
+            pageObjectTransaksi.clickMetodePembayaranVirtualAccountBCA();
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickPayNow();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 5)
+    public void pembayaranVirtualAccountLainnya(){
+        try{
+            PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
+            //===================== SCROLL TO TEXT ======================//
+            Thread.sleep(10000);
+            pageObjectTransaksi.clickMetodePembayaranVirtualLainnya();
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickPayNow();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 5)
+    public void pembayaranBCAKlikPay(){
+        try{
+            PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
+            //===================== SCROLL TO TEXT ======================//
+            Thread.sleep(10000);
+            pageObjectTransaksi.clickMetodePembayaranBCAKlikPay();
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickPayNow();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 5)
+    public void pembayaranAkuLaku(){
+        try{
+            PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
+            //===================== SCROLL TO TEXT ======================//
+            Thread.sleep(10000);
+            pageObjectTransaksi.clickMetodePembayaranAkuLaku();
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickPayNow();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 5)
+    public void pembayaranKartuKreditBCA(){
+        try{
+            PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
+                //===================== SCROLL TO TEXT ======================//
+                try {
+                    Thread.sleep(5000);
+                    driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))"+".scrollToEnd(55);"));
+                }
+                catch (Exception e)
+                {
+                    System.out.println(e.getMessage());
+                }
+                //===================== SCROLL TO TEXT ======================//
+                Thread.sleep(10000);
+            pageObjectTransaksi.clickMetodePembayaranKartuKreditBCA();
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickPayNow();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 5)
+    public void pembayaranPaymentPointIndomaret(){
+        try{
+            PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
+            //===================== SCROLL TO TEXT ======================//
+            try {
+                Thread.sleep(5000);
+                driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))"+".scrollToEnd(55);"));
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+            //===================== SCROLL TO TEXT ======================//
+            Thread.sleep(6000);
+            log.log(Status.PASS,"melakukan Scroll hingga 'Payment Point Indomaret' tampil pada Tampilan Layar");
+            Thread.sleep(10000);
+            pageObjectTransaksi.clickMetodePembayaranPaymentPointIndomaret();
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickPayNow();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 5)
+    public void pembayaranLinkAja(){
+        try{
+            PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
+            //===================== SCROLL TO TEXT ======================//
+            try {
+                Thread.sleep(5000);
+                driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))"+".scrollToEnd(55);"));
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+            //===================== SCROLL TO TEXT ======================//
+            log.log(Status.PASS,"melakukan Scroll hingga 'LinkAja' tampil pada Tampilan Layar");
+            Thread.sleep(10000);
+            pageObjectTransaksi.clickMetodePembayaranLinkAja();
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickPayNow();
+        }catch (Exception e){
             e.printStackTrace();
         }
     }

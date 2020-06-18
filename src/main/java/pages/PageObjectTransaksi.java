@@ -10,6 +10,20 @@ public class PageObjectTransaksi extends BasePage{
         super(driver);
     }
 
+    @AndroidFindBy(xpath = "//android.widget.Button[@content-desc=\"Bayar Sekarang\"]")
+    private AndroidElement btnPayNow;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.Button[2]")
+    private AndroidElement allowPermission;
+
+    public void clickPayNow() throws InterruptedException{
+        waitForVisibility(btnPayNow);
+        btnPayNow.click();
+    }
+    public void pilihAllowPermissionLocation() throws InterruptedException{
+        waitForVisibility(allowPermission);
+        allowPermission.click();
+    }
+
 //region Jenis Produk
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.TextView[1]")
     private AndroidElement btnProductDetailToko2;
@@ -139,6 +153,72 @@ public class PageObjectTransaksi extends BasePage{
         btnPayCIMBRekPonXPath.click();
     }
     //===================== Metode Pembayaran CIMB Rekening Ponsel ======================//
+    //endregion
+
+    //region 2. Virtual Account
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"BCA Virtual Account\"]")
+    private AndroidElement listVirtualBCA;
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Virtual Account Lainnya\"]")
+    private AndroidElement listVirtualLainnya;
+
+    public void clickMetodePembayaranVirtualAccountBCA() throws InterruptedException{
+        waitForVisibility(listVirtualBCA);
+        listVirtualBCA.click();
+    }
+    public void clickMetodePembayaranVirtualLainnya() throws InterruptedException{
+        waitForVisibility(listVirtualLainnya);
+        listVirtualLainnya.click();
+    }
+    //endregion
+
+    //region 3. BCA KlikPay
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"BCA KlikPay\"]")
+    private AndroidElement listBCAKlikPay;
+
+    public void clickMetodePembayaranBCAKlikPay() throws InterruptedException{
+        waitForVisibility(listBCAKlikPay);
+        listBCAKlikPay.click();
+    }
+    //endregion
+
+    //region 4. Akulaku
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Akulaku\"]")
+    private AndroidElement listAkulaku;
+
+    public void clickMetodePembayaranAkuLaku() throws InterruptedException{
+        waitForVisibility(listAkulaku);
+        listAkulaku.click();
+    }
+    //endregion
+
+    //region 5. Kartu Kredit BCA
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Kartu Kredit/Debit Online BCA\"]")
+    private AndroidElement listKartuKreditBCA;
+
+    public void clickMetodePembayaranKartuKreditBCA() throws InterruptedException {
+        waitForVisibility(listKartuKreditBCA);
+        listKartuKreditBCA.click();
+    }
+    //endregion
+
+    //region 6. Kartu Payment Point Indomaret
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Payment Point Indomaret\"]")
+    private AndroidElement listPaymentPointIndomaret;
+
+    public void clickMetodePembayaranPaymentPointIndomaret() throws InterruptedException {
+        waitForVisibility(listPaymentPointIndomaret);
+        listPaymentPointIndomaret.click();
+    }
+    //endregion
+
+    //region 7. Link Aja
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"LinkAja\"]")
+    private AndroidElement listLinkAja;
+
+    public void clickMetodePembayaranLinkAja() throws InterruptedException {
+        waitForVisibility(listLinkAja);
+        listLinkAja.click();
+    }
     //endregion
 
 //endregion

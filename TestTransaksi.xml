@@ -8,8 +8,8 @@
                     <include name="halamanAwalKodePos"></include>
                     <include name="loginSuccessfull"></include>
                     <include name="transaksiNormal"></include>
-                    <include name="checkOut"></include>
-                    <include name="pembayaranCIMBNiagaRekPon"></include>
+                    <include name="checkOutToko"></include>
+                    <include name="pembayaranKartuKreditBCA"></include>
                 </methods>
             </class>
         </classes>
