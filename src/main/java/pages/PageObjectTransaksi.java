@@ -31,6 +31,8 @@ public class PageObjectTransaksi extends BasePage{
     private AndroidElement btnProductDetailToko1;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.TextView[1]")
     private AndroidElement btnProductDetailKlik1;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView[1]")
+    private AndroidElement btnProductDetailpenjual;
 
     public void clickDetailProductToko2() throws InterruptedException{
         waitForVisibility(btnProductDetailToko2);
@@ -44,9 +46,13 @@ public class PageObjectTransaksi extends BasePage{
         waitForVisibility(btnProductDetailKlik1);
         btnProductDetailKlik1.click();
     }
+    public void clickDetailProductPenjual() throws InterruptedException{
+        waitForVisibility(btnProductDetailpenjual);
+        btnProductDetailpenjual.click();
+    }
 //endregion
 
-//region Add to Shopping Cart
+//region Matriks Shopping Cart
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView")
     private AndroidElement guideProductDetail;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView")
@@ -66,6 +72,9 @@ public class PageObjectTransaksi extends BasePage{
         waitForVisibility(btnShoppingCart);
         btnShoppingCart.click();
     }
+
+    //region BD Plaza
+    //endregion
 //endregion
 
 //region Check Out

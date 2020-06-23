@@ -15,7 +15,7 @@ public class Transaksi extends ExtentReportsDemo {
     AndroidDriver driver = Utility.getAndroidDriver();
 
     String user = "0895338021090", kodepos = "15155", password ="tapaukeyi";
-    String productid ="Deterjen Rinso";
+    String productid ="20079790";
 
     @Test(priority = 1)
     public void halamanAwalKodePos(){
@@ -76,7 +76,7 @@ public class Transaksi extends ExtentReportsDemo {
     }
 
     @Test(priority = 3)
-    public void transaksiNormal(){
+    public void transaksiKolomPencarian(){
         try {
             Thread.sleep(5000);
             PageObjectHalamanBeranda pageObjectHalamanberanda = new PageObjectHalamanBeranda(driver);
@@ -88,12 +88,18 @@ public class Transaksi extends ExtentReportsDemo {
             log.log(Status.PASS,"pilih produk teratas dari daftar pencarian");
 
             PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
-            pageObjectTransaksi.clickDetailProductToko2();
+//            pageObjectTransaksi.clickDetailProductToko2();
+            pageObjectTransaksi.clickDetailProductPenjual();
 //            pageObjectTransaksi.clickDetailProductToko1();
 //            pageObjectTransaksi.clickDetailProductKlik1();
             log.log(Status.PASS,"klik untuk melihat detail produk");
-            pageObjectTransaksi.clickGuideCariTokoygMenjual();
+//            pageObjectTransaksi.clickGuideCariTokoygMenjual();
             log.log(Status.PASS,"tap 'Mengerti' untuk panduan pencarian toko yang menjual produk");
+            Thread.sleep(4000);
+            //===================== SCROLL TO TEXT ======================//
+            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"PLU\").instance(0))"));
+            //===================== SCROLL TO TEXT ======================//
+            Thread.sleep(4000);
             pageObjectTransaksi.clickButtonBeliProduct();
             Thread.sleep(5000);
             pageObjectTransaksi.clickButtonBeliProduct();

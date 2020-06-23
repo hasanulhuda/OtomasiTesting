@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="false">
-    <test verbose="2" preserve-order="true" name="Transaction Test">
+    <test verbose="2" preserve-order="true" name="Methods Change Test">
         <classes>
-            <class name="Transaksi">
+            <class name="UbahMetodePengiriman">
                 <methods>
                     <include name="halamanAwalKodePos"></include>
                     <include name="loginSuccessfull"></include>
-                    <include name="transaksiKolomPencarian"></include>
-                    <include name="checkOutKlik"></include>
-                    <include name="pembayaranKartuKreditBCA"></include>
+                    <include name="metodeAmbildiAlamatSudahAda"></include>
                 </methods>
             </class>
         </classes>
