@@ -96,6 +96,12 @@ public class PageObjectHalamanBeranda extends BasePage{
     private AndroidElement btnPilihAlamat;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ImageView[1]")
     private AndroidElement btnPilihAlamatKedua;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView")
+    private AndroidElement btnAturAlamat1Baris;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.widget.TextView")
+    private AndroidElement btnAturAlamat2Baris;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/cq/android.widget.TextView")
+    private AndroidElement btnTambahAlamatKedua;
 
     public void clickCheckUntukPilihAlamat() throws InterruptedException{
         waitForVisibility(btnPilihAlamat);
@@ -105,15 +111,28 @@ public class PageObjectHalamanBeranda extends BasePage{
         waitForVisibility(btnPilihAlamatKedua);
         btnPilihAlamatKedua.click();
     }
+    public void clickAturAlamatHanyaSatu() throws InterruptedException{
+        waitForVisibility(btnAturAlamat1Baris);
+        btnAturAlamat1Baris.click();
+    }
+    public void clickAturAlamatHanyaDua() throws InterruptedException{
+        waitForVisibility(btnAturAlamat2Baris);
+        btnAturAlamat2Baris.click();
+    }
+    public void clickTambahAlamatKedua() throws InterruptedException{
+        waitForVisibility(btnTambahAlamatKedua);
+        btnTambahAlamatKedua.click();
+    }
     //endregion
 
     //region Kirim Ke Alamat (Baru)
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup")
-    private AndroidElement btnHalamanAlamatBaru;
+    private AndroidElement btnTambahAlamatBaru;
 
-    public void clickButtonUntuhHalamanAlamatBaru() throws InterruptedException{
-        waitForVisibility(btnHalamanAlamatBaru);
-        btnHalamanAlamatBaru.click();
+
+    public void clickTambahHalamanAlamatBaru() throws InterruptedException{
+        waitForVisibility(btnTambahAlamatBaru);
+        btnTambahAlamatBaru.click();
     }
     //endregion
 

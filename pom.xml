@@ -57,7 +57,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <forkMode>once</forkMode>
                     <suiteXmlFiles>
-                        <suiteXmlFile>TestLoginLogout.xml</suiteXmlFile>
+                        <suiteXmlFile>TestUbahMetodePengiriman.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

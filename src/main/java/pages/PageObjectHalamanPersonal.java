@@ -326,12 +326,21 @@ public class PageObjectHalamanPersonal extends BasePage {
 
     //region Metode Kode POS
     /*-------------------- Metode Kode POS ---------------------------*/
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[5]/android.widget.ImageView")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[4]/android.widget.ImageView")
     private AndroidElement btnKodePOS;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.EditText")
     private AndroidElement insertKodePOS;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView")
     private AndroidElement btnPilihanKodePOS;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[8]/android.widget.ImageView[1]")
+    private AndroidElement btnAlamatLengkap;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[4]/android.view.ViewGroup/android.widget.EditText")
+    private AndroidElement btnKolomAlamatLengkap;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[5]/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView")
+    private AndroidElement btnTandaiLokasi;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[10]/android.widget.TextView")
+    private AndroidElement btnSimpanAlamat;
+
 
     public void clickButtonKodePOS() throws InterruptedException{
         waitForVisibility(btnKodePOS);
@@ -345,13 +354,32 @@ public class PageObjectHalamanPersonal extends BasePage {
     public void clickPilihanTeratasKodePOS() throws InterruptedException{
         waitForVisibility(btnPilihanKodePOS);
         btnPilihanKodePOS.click();
+        btnPilihanKodePOS.click();
+    }
+    public void clickAlamatLengkap() throws InterruptedException{
+        waitForVisibility(btnAlamatLengkap);
+        btnAlamatLengkap.click();
+    }
+    public void tapKolomAlamatLengkap(String kolomalamat) throws InterruptedException{
+        waitForVisibility(btnKolomAlamatLengkap);
+        btnKolomAlamatLengkap.click();
+        Thread.sleep(4000);
+        sendKeys(btnKolomAlamatLengkap, kolomalamat);
+    }
+    public void clickSetujuTandaiAlamat() throws InterruptedException{
+        waitForVisibility(btnTandaiLokasi);
+        btnTandaiLokasi.click();
+    }
+    public void clickButtonSimpanAlamat() throws InterruptedException{
+        waitForVisibility(btnSimpanAlamat);
+        btnSimpanAlamat.click();
     }
     /*-------------------- Metode Kode POS ---------------------------*/
     //endregion
 
     //region Metode Kode Wilayah
     /*-------------------- Metode Kode Wilayah ---------------------------*/
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[8]/android.widget.ImageView")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[7]")
     private AndroidElement btnKodeWilayah;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.EditText")
     private AndroidElement insertProvinsi;
@@ -405,7 +433,45 @@ public class PageObjectHalamanPersonal extends BasePage {
         waitForVisibility(btnKelurahan);
         btnKelurahan.click();
     }
+
+    //region Ubah Alamat
+    /*-------------------- Ubah Alamat ---------------------------*/
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView")
+    private AndroidElement btnUbahAlamat1;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.widget.TextView")
+    private AndroidElement btnUbahAlamat2;
+
+    public void clickButtonUbahAlamatSatu() throws InterruptedException{
+        waitForVisibility(btnUbahAlamat1);
+        btnUbahAlamat1.click();
+    }
+    public void clickButtonUbahAlamatKedua() throws InterruptedException{
+        waitForVisibility(btnUbahAlamat2);
+        btnUbahAlamat2.click();
+    }
+    /*-------------------- Ubah Alamat ---------------------------*/
+    //endregion
+
+    //region Hapus Alamat
+    /*-------------------- Hapus Alamat ---------------------------*/
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.TextView")
+    private AndroidElement btnHapusAlamat1;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.TextView")
+    private AndroidElement btnHapusAlamat2;
+
+    public void clickHapusAlamatSatu() throws InterruptedException{
+        waitForVisibility(btnHapusAlamat1);
+        btnHapusAlamat1.click();
+    }
+    public void clickHapusAlamatKedua() throws InterruptedException{
+        waitForVisibility(btnHapusAlamat2);
+        btnHapusAlamat2.click();
+    }
+    /*-------------------- Hapus Alamat ---------------------------*/
+    //endregion
+
     /*-------------------- Metode Kode Wilayah ---------------------------*/
+
     //endregion
 
     /*========================================= 2222222222222222222 ===================================================*/

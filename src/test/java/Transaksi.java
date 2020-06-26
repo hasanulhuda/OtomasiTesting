@@ -15,7 +15,6 @@ public class Transaksi extends ExtentReportsDemo {
     AndroidDriver driver = Utility.getAndroidDriver();
 
     String user = "0895338021090", kodepos = "15155", password ="tapaukeyi";
-    String productid ="20079790";
 
     @Test(priority = 1)
     public void halamanAwalKodePos(){
@@ -77,12 +76,15 @@ public class Transaksi extends ExtentReportsDemo {
 
     @Test(priority = 3)
     public void transaksiKolomPencarian(){
+        String productid ="20079790", productBDPAAI="", productBDnonPAAI="20100669"
+                , productBDJNE="20074452", productBPJNE="20069260", productBP="20065806"
+                , productDP="20042702", ProductDPJNE="20073427";
         try {
             Thread.sleep(5000);
             PageObjectHalamanBeranda pageObjectHalamanberanda = new PageObjectHalamanBeranda(driver);
             pageObjectHalamanberanda.clickKolomSearch();
             log.log(Status.PASS,"tap kolom search pada Beranda");
-            pageObjectHalamanberanda.setInsertNamaProduct(productid);
+            pageObjectHalamanberanda.setInsertNamaProduct(productBDnonPAAI);
             log.log(Status.PASS,"insert produk yang dicari");
             pageObjectHalamanberanda.clickPilihanTeratasPencarian();
             log.log(Status.PASS,"pilih produk teratas dari daftar pencarian");

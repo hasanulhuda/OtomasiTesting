@@ -23,6 +23,30 @@ public class PageObjectHalamanAwal extends BasePage {
         waitForVisibility(guideLogin2);
         guideLogin2.click();
     }
+    //region v.20
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[5]/android.widget.TextView")
+    private AndroidElement guideLogin1Versi20;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[5]/android.widget.TextView")
+    private AndroidElement guideLogin2Versi20;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[5]/android.widget.TextView")
+    private AndroidElement guideLogin3Versi20;
+
+
+    public void clickOnGuide1Versi20() throws InterruptedException {
+        waitForVisibility(guideLogin1Versi20);
+        guideLogin1Versi20.click();
+        guideLogin1Versi20.click();
+    }
+    public void clickOnGuide2Versi20() throws InterruptedException {
+        waitForVisibility(guideLogin2Versi20);
+        guideLogin2Versi20.click();
+    }
+    public void clickOnGuide3Versi20() throws InterruptedException {
+        waitForVisibility(guideLogin3Versi20);
+        guideLogin3Versi20.click();
+    }
+    //endregion
+
 
 //region 1. Lokasi by Kode POS
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[4]/android.widget.ImageView")
