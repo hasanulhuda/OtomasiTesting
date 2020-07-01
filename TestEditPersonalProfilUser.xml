@@ -8,7 +8,7 @@
                     <include name="halamanAwalKodePos"></include>
                     <include name="loginSuccessfull"></include>
                     <include name="halamanEditProfil"></include>
-                    <include name="ubahEmail"></include>
+                    <include name="ubahPassword"></include>
                 </methods>
             </class>
         </classes>

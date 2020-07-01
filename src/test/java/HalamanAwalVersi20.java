@@ -22,7 +22,7 @@ public class HalamanAwalVersi20 extends ExtentReportsDemo {
             log.log(Status.PASS,"Object Guide Pengguna Pertama");
             pageObjectHalamanAwal.clickOnGuide2Versi20();
             log.log(Status.PASS,"Object Guide Pengguna Kedua");
-            pageObjectHalamanAwal.clickOnGuide3Versi20();
+            pageObjectHalamanAwal.clickOnGuide2();
             log.log(Status.PASS,"Object Guide Pengguna Kedua");
             pageObjectHalamanAwal.clickButtonKodePos();
             log.log(Status.PASS,"Button Untuk Input lokasi menggunakan Kode POS");
@@ -44,7 +44,7 @@ public class HalamanAwalVersi20 extends ExtentReportsDemo {
             log.log(Status.PASS,"Object Guide Pengguna Pertama");
             pageObjectHalamanAwal.clickOnGuide2Versi20();
             log.log(Status.PASS,"Object Guide Pengguna Kedua");
-            pageObjectHalamanAwal.clickOnGuide3Versi20();
+            pageObjectHalamanAwal.clickOnGuide2();
             log.log(Status.PASS,"Object Guide Pengguna Kedua");
             pageObjectHalamanAwal.clickButtonKodeWilayah();
             log.log(Status.PASS,"Button Untuk Input lokasi menggunakan Kode Wilayah");

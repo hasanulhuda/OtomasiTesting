@@ -12,6 +12,10 @@ public class PageObjectHalamanBeranda extends BasePage{
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[1]")
     private AndroidElement btnSearchProduct;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.widget.TextView")
+    private AndroidElement textHalamanHome;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.TextView")
+    private AndroidElement textTokoBelumdiPilih;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.EditText")
     private AndroidElement insertNamaProduct;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView")
@@ -21,6 +25,12 @@ public class PageObjectHalamanBeranda extends BasePage{
 
     public String getTitle(){
         return getAttribute(btnUbahHome, "text");
+    }
+    public String getTextHalamanHome(){
+        return getAttribute(textHalamanHome, "text");
+    }
+    public String getTextTokoBelumDipilih(){
+        return getAttribute(textTokoBelumdiPilih, "text");
     }
     public void clickKolomSearch()throws InterruptedException{
         waitForVisibility(btnSearchProduct);
@@ -100,8 +110,12 @@ public class PageObjectHalamanBeranda extends BasePage{
     private AndroidElement btnAturAlamat1Baris;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.widget.TextView")
     private AndroidElement btnAturAlamat2Baris;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.TextView")
+    private AndroidElement btnHapusAlamat1Baris;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/cq/android.widget.TextView")
     private AndroidElement btnTambahAlamatKedua;
+    @AndroidFindBy(id = "android:id/button1")
+    private AndroidElement btnSetujuHapusAlamat;
 
     public void clickCheckUntukPilihAlamat() throws InterruptedException{
         waitForVisibility(btnPilihAlamat);
@@ -118,6 +132,14 @@ public class PageObjectHalamanBeranda extends BasePage{
     public void clickAturAlamatHanyaDua() throws InterruptedException{
         waitForVisibility(btnAturAlamat2Baris);
         btnAturAlamat2Baris.click();
+    }
+    public void clickHapusAlamatSatu() throws InterruptedException{
+        waitForVisibility(btnHapusAlamat1Baris);
+        btnHapusAlamat1Baris.click();
+    }
+    public void clickSetujuHapusAlamat() throws InterruptedException{
+        waitForVisibility(btnSetujuHapusAlamat);
+        btnSetujuHapusAlamat.click();
     }
     public void clickTambahAlamatKedua() throws InterruptedException{
         waitForVisibility(btnTambahAlamatKedua);

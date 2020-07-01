@@ -11,9 +11,14 @@ public class PageObjectHalamanLogin extends BasePage{
         super(driver);
     }
 
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView")
+    private AndroidElement textHalamanLogin;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[4]/android.widget.TextView")
     private AndroidElement btnHalamanLogin;
 
+    public String getTitlekHalamanLogin() throws InterruptedException{
+        return getAttribute(textHalamanLogin, "text");
+    }
     public void clickHalamanLogin() throws InterruptedException{
         waitForVisibility(btnHalamanLogin);
         btnHalamanLogin.click();

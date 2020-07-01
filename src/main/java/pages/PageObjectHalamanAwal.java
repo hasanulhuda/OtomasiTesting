@@ -35,10 +35,14 @@ public class PageObjectHalamanAwal extends BasePage {
     public void clickOnGuide1Versi20() throws InterruptedException {
         waitForVisibility(guideLogin1Versi20);
         guideLogin1Versi20.click();
+        Thread.sleep(5000);
         guideLogin1Versi20.click();
     }
     public void clickOnGuide2Versi20() throws InterruptedException {
         waitForVisibility(guideLogin2Versi20);
+        guideLogin2Versi20.click();
+        Thread.sleep(5000);
+        Thread.sleep(3000);
         guideLogin2Versi20.click();
     }
     public void clickOnGuide3Versi20() throws InterruptedException {

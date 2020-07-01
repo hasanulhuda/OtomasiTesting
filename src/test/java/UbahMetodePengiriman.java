@@ -12,15 +12,20 @@ public class UbahMetodePengiriman extends ExtentReportsDemo {
     AndroidDriver driver = Utility.getAndroidDriver();
 
     String user = "0895338021090", kodepos = "15155", password ="tapaukeyi";
-    String productid ="20079790", kodetoko="TLW7", address="Jl. Medan Merdeka Barat no. 57";
+    String productid ="20079790", kodetoko="TUOL", address="Jl. Medan Merdeka Barat no. 57";
 
     @Test(priority = 1)
     public void halamanAwalKodePos(){
         try {
             Thread.sleep(7000);
             PageObjectHalamanAwal pageObjectHalamanAwal = new PageObjectHalamanAwal(driver);
-            pageObjectHalamanAwal.clickOnGuide1();
             Thread.sleep(7000);
+//            pageObjectHalamanAwal.clickOnGuide1Versi20();
+//            log.log(Status.PASS,"Object Guide Pengguna Pertama");
+//            Thread.sleep(7000);
+//            pageObjectHalamanAwal.clickOnGuide2Versi20();
+//            log.log(Status.PASS,"Object Guide Pengguna Kedua");
+            pageObjectHalamanAwal.clickOnGuide1();
             log.log(Status.PASS,"Object Guide Pengguna Pertama");
             pageObjectHalamanAwal.clickOnGuide2();
             log.log(Status.PASS,"Object Guide Pengguna Kedua");
@@ -35,6 +40,12 @@ public class UbahMetodePengiriman extends ExtentReportsDemo {
             pageObjectHalamanLogin.clickHalamanLogin();
             log.log(Status.PASS,"Memilih Lokasi berdasar Kode Wilayah Berhasil");
 
+            Thread.sleep(5000);
+            String actualProductTitle = pageObjectHalamanLogin.getTitlekHalamanLogin();
+            String expectedProductTitle = "Akun Saya";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -72,47 +83,6 @@ public class UbahMetodePengiriman extends ExtentReportsDemo {
         }
     }
 
-    @Test(priority = 3)
-    public void transaksiKolomPencarian(){
-        try {
-            Thread.sleep(5000);
-            PageObjectHalamanBeranda pageObjectHalamanberanda = new PageObjectHalamanBeranda(driver);
-            pageObjectHalamanberanda.clickKolomSearch();
-            log.log(Status.PASS,"tap kolom search pada Beranda");
-            pageObjectHalamanberanda.setInsertNamaProduct(productid);
-            log.log(Status.PASS,"insert produk yang dicari");
-            pageObjectHalamanberanda.clickPilihanTeratasPencarian();
-            log.log(Status.PASS,"pilih produk teratas dari daftar pencarian");
-
-            PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
-//            pageObjectTransaksi.clickDetailProductToko2();
-            pageObjectTransaksi.clickDetailProductPenjual();
-//            pageObjectTransaksi.clickDetailProductToko1();
-//            pageObjectTransaksi.clickDetailProductKlik1();
-            log.log(Status.PASS,"klik untuk melihat detail produk");
-//            pageObjectTransaksi.clickGuideCariTokoygMenjual();
-            log.log(Status.PASS,"tap 'Mengerti' untuk panduan pencarian toko yang menjual produk");
-            Thread.sleep(4000);
-            //===================== SCROLL TO TEXT ======================//
-            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"PLU\").instance(0))"));
-            //===================== SCROLL TO TEXT ======================//
-            Thread.sleep(4000);
-            pageObjectTransaksi.clickButtonBeliProduct();
-            Thread.sleep(5000);
-            pageObjectTransaksi.clickButtonBeliProduct();
-            Thread.sleep(5000);
-            log.log(Status.PASS,"klik tombol beli untuk menambahkan produk kedalam keranjang belanja");
-            Thread.sleep(3000);
-            driver.navigate().back();
-            Thread.sleep(3000);
-            driver.navigate().back();
-
-
-        } catch (InterruptedException e){
-            e.printStackTrace();
-        }
-    }
-
     @Test(priority = 4)
     public void metodeAmbildiToko(){
         try {
@@ -139,6 +109,11 @@ public class UbahMetodePengiriman extends ExtentReportsDemo {
         pageObjectHalamanBeranda.clickPilihToko();
         log.log(Status.PASS,"");
 
+        String actualProductTitle = pageObjectHalamanBeranda.getTextHalamanHome();
+        String expectedProductTitle = "Home";
+        System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+        Assert.assertEquals(actualProductTitle,expectedProductTitle);
         } catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -150,19 +125,25 @@ public class UbahMetodePengiriman extends ExtentReportsDemo {
             Thread.sleep(5000);
             PageObjectHalamanBeranda pageObjectHalamanBeranda = new PageObjectHalamanBeranda(driver);
             pageObjectHalamanBeranda.clickButtonUbahMetode();
-            log.log(Status.PASS, "klik icon shopping cart untuk pindah ke Halaman Pembayaran");
+            log.log(Status.PASS,"klik icon shopping cart untuk pindah ke Halaman Pembayaran");
             Thread.sleep(6000);
-//            pageObjectHalamanBeranda.clickCheckUntukPilihAlamat();
+            pageObjectHalamanBeranda.clickCheckUntukPilihAlamat();
             log.log(Status.PASS,"");
             Thread.sleep(6000);
-            pageObjectHalamanBeranda.clickAturAlamatHanyaSatu();
-            log.log(Status.PASS,"");
-            Thread.sleep(6000);
-            pageObjectHalamanBeranda.clickTambahAlamatKedua();
-            log.log(Status.PASS,"");
+//            pageObjectHalamanBeranda.clickAturAlamatHanyaSatu();
+//            log.log(Status.PASS,"");
+//            Thread.sleep(6000);
+//            pageObjectHalamanBeranda.clickTambahAlamatKedua();
+//            log.log(Status.PASS,"");
 //            Thread.sleep(6000);
 //            pageObjectHalamanBeranda.clickCheckUntukPilihanAlamatKedua();
-//            log.log(Status.PASS,"");
+            log.log(Status.PASS,"");
+
+            String actualProductTitle = pageObjectHalamanBeranda.getTextHalamanHome();
+            String expectedProductTitle = "Home";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -176,11 +157,22 @@ public class UbahMetodePengiriman extends ExtentReportsDemo {
             pageObjectHalamanBeranda.clickButtonUbahMetode();
             log.log(Status.PASS, "klik icon shopping cart untuk pindah ke Halaman Pembayaran");
             Thread.sleep(6000);
-//            pageObjectHalamanBeranda.clickAturAlamatHanyaSatu();
-            pageObjectHalamanBeranda.clickAturAlamatHanyaDua();
+            pageObjectHalamanBeranda.clickAturAlamatHanyaSatu();
+//            pageObjectHalamanBeranda.clickAturAlamatHanyaDua();
             log.log(Status.PASS,"");
+            pageObjectHalamanBeranda.clickHapusAlamatSatu();
+            pageObjectHalamanBeranda.clickSetujuHapusAlamat();
             Thread.sleep(5000);
+            driver.navigate().back();
+            Thread.sleep(5000);
+            driver.navigate().back();
 
+            Thread.sleep(5000);
+            String actualProductTitle = pageObjectHalamanBeranda.getTextTokoBelumDipilih();
+            String expectedProductTitle = "Belum ada toko Indomaret terpilih";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         } catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -246,7 +238,15 @@ public class UbahMetodePengiriman extends ExtentReportsDemo {
             pageObjectHalamanPersonal.clickSetujuTandaiAlamat();
             Thread.sleep(5000);
             pageObjectHalamanPersonal.clickButtonSimpanAlamat();
+            Thread.sleep(5000);
+            driver.navigate().back();
 
+            PageObjectHalamanBeranda pageObjectHalamanBeranda = new PageObjectHalamanBeranda(driver);
+            String actualProductTitle = pageObjectHalamanBeranda.getTextHalamanHome();
+            String expectedProductTitle = "Home";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -287,9 +287,16 @@ public class UbahMetodePengiriman extends ExtentReportsDemo {
             driver.hideKeyboard();
             Thread.sleep(5000);
             pageObjectHalamanPersonal.clickSetujuTandaiAlamat();
-            Thread.sleep(5000);
             pageObjectHalamanPersonal.clickButtonSimpanAlamat();
+            Thread.sleep(5000);
+            driver.navigate().back();
 
+            PageObjectHalamanBeranda pageObjectHalamanBeranda = new PageObjectHalamanBeranda(driver);
+            String actualProductTitle = pageObjectHalamanBeranda.getTextHalamanHome();
+            String expectedProductTitle = "Home";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         }catch (InterruptedException e){
             e.printStackTrace();
         }

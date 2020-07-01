@@ -58,14 +58,14 @@ public class Login extends ExtentReportsDemo {
             pageObjectHalamanLogin.clickButtonSubmitLogin();
             log.log(Status.PASS,"Tap Button Login untuk melakukan validasi data Pengguna");
 
-            String actualErrTxt = pageObjectHalamanLogin.getErrTxt();
 
             Thread.sleep(3000);
-            pageObjectHalamanLogin.clickButtonValidasi();
-            String expectedErrTxt = "Username and Password Doesn't Match or Coudn't find User with this ID";
-            System.out.println("actual error txt-"+actualErrTxt+"\n"+"expected error txt-"+expectedErrTxt);
+            PageObjectHalamanBeranda pageObjectHalamanBeranda = new PageObjectHalamanBeranda(driver);
+            String actualProductTitle = pageObjectHalamanBeranda.getTitle();
+            String expectedProductTitle = "Ubah";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
 
-            Assert.assertEquals(actualErrTxt,expectedErrTxt);
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         } catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -85,14 +85,13 @@ public class Login extends ExtentReportsDemo {
             pageObjectHalamanLogin.clickButtonSubmitLogin();
             log.log(Status.PASS,"Tap Button Login untuk melakukan validasi data Pengguna");
 
-            String actualErrTxt = pageObjectHalamanLogin.getErrTxt();
-
             Thread.sleep(5000);
-            pageObjectHalamanLogin.clickButtonValidasi();
-            String expectedErrTxt = "Username and Password Doesn't Match or Coudn't find User with this ID";
-            System.out.println("actual error txt-"+actualErrTxt+"\n"+"expected error txt-"+expectedErrTxt);
+            PageObjectHalamanBeranda pageObjectHalamanBeranda = new PageObjectHalamanBeranda(driver);
+            String actualProductTitle = pageObjectHalamanBeranda.getTitle();
+            String expectedProductTitle = "Ubah";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
 
-            Assert.assertEquals(actualErrTxt,expectedErrTxt);
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         } catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -149,7 +148,14 @@ public class Login extends ExtentReportsDemo {
             Thread.sleep(5000);
             pageObjectHalamanPersonal.clickTombolKeluar();
             log.log(Status.PASS,"klik tombol logout dan logout berhasil");
-        }catch (Exception e){
+
+            PageObjectHalamanBeranda pageObjectHalamanBeranda = new PageObjectHalamanBeranda(driver);
+            String actualProductTitle = pageObjectHalamanBeranda.getTitle();
+            String expectedProductTitle = "Ubah";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
+        }catch (InterruptedException e){
             e.printStackTrace();
         }
     }

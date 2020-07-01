@@ -14,6 +14,8 @@ public class PageObjectTransaksi extends BasePage{
     private AndroidElement btnPayNow;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.Button[2]")
     private AndroidElement allowPermission;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View[2]")
+    private AndroidElement textPembayaran;
 
     public void clickPayNow() throws InterruptedException{
         waitForVisibility(btnPayNow);
@@ -22,6 +24,9 @@ public class PageObjectTransaksi extends BasePage{
     public void pilihAllowPermissionLocation() throws InterruptedException{
         waitForVisibility(allowPermission);
         allowPermission.click();
+    }
+    public String getTextPembayaran(){
+        return getAttribute(textPembayaran, "text");
     }
 
 //region Jenis Produk

@@ -45,6 +45,12 @@ public class UbahDataPersonalTestCase extends ExtentReportsDemo {
             PageObjectHalamanLogin pageObjectHalamanLogin = new PageObjectHalamanLogin(driver);
             pageObjectHalamanLogin.clickHalamanLogin();
             log.log(Status.PASS,"Memilih Lokasi berdasar Kode Wilayah Berhasil");
+
+            String actualProductTitle = pageObjectHalamanLogin.getTitlekHalamanLogin();
+            String expectedProductTitle = "Akun Saya";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -99,10 +105,18 @@ public class UbahDataPersonalTestCase extends ExtentReportsDemo {
             Thread.sleep(3000);
             pageObjectHalamanPersonal.clickHalamanEditProfil();
             log.log(Status.PASS,"klik hyperlink edit profil untuk pindah ke Halaman Edit Profile");
+
+            Thread.sleep(5000);
+            String actualProductTitle = pageObjectHalamanPersonal.getTextInformasiAkun();
+            String expectedProductTitle = "Informasi Akun";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
     }
+
     @Test(priority = 4)
     public void iSakuConnect(){
         Koneksi cn = new Koneksi();

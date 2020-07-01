@@ -140,6 +140,12 @@ public class Transaksi extends ExtentReportsDemo {
         pageObjectTransaksi.clickKonfirmasiAlamatPengiriman();
         log.log(Status.PASS,"klik lanjut jika sudah melakukan konfirmasi alamat pengiriman");
 
+        Thread.sleep(5000);
+        String actualProductTitle = pageObjectTransaksi.getTextPembayaran();
+        String expectedProductTitle = "Pembayaran";
+        System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+        Assert.assertEquals(actualProductTitle,expectedProductTitle);
         } catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -171,6 +177,13 @@ public class Transaksi extends ExtentReportsDemo {
             Thread.sleep(6000);
             pageObjectTransaksi.clickKonfirmasiAlamatPengiriman();
             log.log(Status.PASS,"Alamat Berhasil dikonfirmasi");
+
+            Thread.sleep(5000);
+            String actualProductTitle = pageObjectTransaksi.getTextPembayaran();
+            String expectedProductTitle = "Pembayaran";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         } catch (InterruptedException e){
             e.printStackTrace();
         }
