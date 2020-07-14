@@ -37,6 +37,12 @@ public class Transaksi extends ExtentReportsDemo {
             pageObjectHalamanLogin.clickHalamanLogin();
             log.log(Status.PASS,"Memilih Lokasi berdasar Kode Wilayah Berhasil");
 
+            Thread.sleep(5000);
+            String actualProductTitle = pageObjectHalamanLogin.getTitlekHalamanLogin();
+            String expectedProductTitle = "Akun Saya";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -76,7 +82,7 @@ public class Transaksi extends ExtentReportsDemo {
 
     @Test(priority = 3)
     public void transaksiKolomPencarian(){
-        String productid ="20079790", productBDPAAI="", productBDnonPAAI="20100669"
+        String productid ="10017288", productBDPAAI="", productBDnonPAAI="20100669"
                 , productBDJNE="20074452", productBPJNE="20069260", productBP="20065806"
                 , productDP="20042702", ProductDPJNE="20073427";
         try {
@@ -84,15 +90,15 @@ public class Transaksi extends ExtentReportsDemo {
             PageObjectHalamanBeranda pageObjectHalamanberanda = new PageObjectHalamanBeranda(driver);
             pageObjectHalamanberanda.clickKolomSearch();
             log.log(Status.PASS,"tap kolom search pada Beranda");
-            pageObjectHalamanberanda.setInsertNamaProduct(productBDnonPAAI);
+            pageObjectHalamanberanda.setInsertNamaProduct(productid);
             log.log(Status.PASS,"insert produk yang dicari");
             pageObjectHalamanberanda.clickPilihanTeratasPencarian();
             log.log(Status.PASS,"pilih produk teratas dari daftar pencarian");
 
             PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
 //            pageObjectTransaksi.clickDetailProductToko2();
-            pageObjectTransaksi.clickDetailProductPenjual();
-//            pageObjectTransaksi.clickDetailProductToko1();
+//            pageObjectTransaksi.clickDetailProductPenjual();
+            pageObjectTransaksi.clickDetailProductToko1();
 //            pageObjectTransaksi.clickDetailProductKlik1();
             log.log(Status.PASS,"klik untuk melihat detail produk");
 //            pageObjectTransaksi.clickGuideCariTokoygMenjual();
@@ -112,7 +118,13 @@ public class Transaksi extends ExtentReportsDemo {
             Thread.sleep(3000);
             driver.navigate().back();
 
+            Thread.sleep(5000);
+            PageObjectHalamanBeranda pageObjectHalamanBeranda = new PageObjectHalamanBeranda(driver);
+            String actualProductTitle = pageObjectHalamanBeranda.getTitle();
+            String expectedProductTitle = "Ubah";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
 
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         } catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -179,11 +191,18 @@ public class Transaksi extends ExtentReportsDemo {
             log.log(Status.PASS,"Alamat Berhasil dikonfirmasi");
 
             Thread.sleep(5000);
-            String actualProductTitle = pageObjectTransaksi.getTextPembayaran();
-            String expectedProductTitle = "Pembayaran";
-            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+            String actualErrorText = pageObjectTransaksi.getErrorTextCheckOut();
+            String expectedErrorText = "Mohon maaf, alamat pengiriman yang Anda pilih saat ini belum dapat dilayani. Silahkan pilih alamat lainnya";
 
-            Assert.assertEquals(actualProductTitle,expectedProductTitle);
+            if(actualErrorText == expectedErrorText){
+                pageObjectTransaksi.clickButtonErrorCheckOutNotification();
+            }else {
+                String actualProductTitle = pageObjectTransaksi.getTextPembayaran();
+                String expectedProductTitle = "Pembayaran";
+                Assert.assertEquals(actualProductTitle,expectedProductTitle);
+
+                System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+            }
         } catch (InterruptedException e){
             e.printStackTrace();
         }

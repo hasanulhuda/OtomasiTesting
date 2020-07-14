@@ -57,7 +57,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <forkMode>once</forkMode>
                     <suiteXmlFiles>
-                        <suiteXmlFile>TestUbahMetodePengiriman.xml</suiteXmlFile>
+                        <suiteXmlFile>Transaksi.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
