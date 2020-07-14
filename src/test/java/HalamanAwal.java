@@ -30,6 +30,16 @@ public class HalamanAwal extends ExtentReportsDemo {
             log.log(Status.PASS,"inputan untuk mencari Wilayah Menggunakan Kode POS");
             pageObjectHalamanAwal.clickPilihanKodePos();
             log.log(Status.PASS,"tampilan teratas untuk Wilayah yang dicari");
+            Thread.sleep(4000);
+            driver.navigate().back();
+            Thread.sleep(5000);
+
+            PageObjectHalamanBeranda pageObjectHalamanBeranda = new PageObjectHalamanBeranda(driver);
+            String actualProductTitle = pageObjectHalamanBeranda.getTitle();
+            String expectedProductTitle = "Ubah";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -67,6 +77,11 @@ public class HalamanAwal extends ExtentReportsDemo {
             PageObjectHalamanLogin pageObjectHalamanLogin = new PageObjectHalamanLogin(driver);
             pageObjectHalamanLogin.clickHalamanLogin();
             log.log(Status.PASS,"Memilih Lokasi berdasar Kode Wilayah Berhasil");
+            String actualProductTitle = pageObjectHalamanLogin.getTitlekHalamanLogin();
+            String expectedProductTitle = "Akun Saya";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         }catch (InterruptedException e){
             e.printStackTrace();
         }

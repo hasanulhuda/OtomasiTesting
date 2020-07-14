@@ -1,19 +1,18 @@
 package koneksi;
 
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Koneksi {
+public class KoneksiKlik {
     private Connection connection;
     private static Statement statement;
     private static ResultSet rs;
 
-    public Koneksi(){
-        String databaseURL = "jdbc:sqlserver://172.31.2.36:1433;databaseName=Klikindomaret_Customer_Preproduction";
+    public KoneksiKlik(){
+        String databaseURL = "jdbc:sqlserver://172.31.2.36:1433;databaseName=Klikindomaret_Preproduction";
         String user = "sa";
         String password = "Int3l@1dm";
         connection = null;
@@ -191,11 +190,11 @@ public class Koneksi {
     }
 
     @Test
-    public List<String> getEmailValid(String isSendEmail) {
-        List <String> ResultCode = new ArrayList<String>();
+    public String getEmailValid(String isSendEmail) {
+        String ResultCode = new String();
         try {
             PreparedStatement pstmt = connection.prepareStatement(
-                    "select distinct top 1 * from SalesOrder so where so.ReffCustomerMobileNo=? order by Created Desc");
+                    "select distinct top 10 * from SalesOrder so where so.ReffCustomerMobileNo=? order by Created Desc");
             pstmt.setString(1,isSendEmail);
             ResultSet rs = pstmt.executeQuery();
 
@@ -203,12 +202,14 @@ public class Koneksi {
                 String isSend = rs.getString("isSend");
                 for (char ch : isSend.toCharArray()) {
 
-                    ResultCode.add(String.valueOf(ch));
+                    ResultCode += (String.valueOf(ch));
+                    System.out.println(ResultCode);
                 }
 
                 //String EmpName= rs.getString("Mobile");
                 //String EmpAddress=rs.getString(3);
                 //String Email=rs.getString("Email");
+
                 System.out.println(ResultCode);
             }
         } catch (SQLException ex) {

@@ -2,14 +2,11 @@ import com.aventstack.extentreports.Status;
 import io.appium.java_client.android.AndroidDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.PageObjectHalamanAwal;
-import pages.PageObjectHalamanBeranda;
-import pages.PageObjectHalamanLogin;
-import pages.PageObjectWishlist;
+import pages.*;
 import reports.ExtentReportsDemo;
 import utils.Utility;
 
-public class Wishlist extends ExtentReportsDemo {
+public class HalamanTransaksiBeta15 extends ExtentReportsDemo {
 
     AndroidDriver driver = Utility.getAndroidDriver();
 
@@ -81,64 +78,12 @@ public class Wishlist extends ExtentReportsDemo {
     }
 
     @Test(priority = 3)
-    public void pencarianProduk(){
-        try {
-            Thread.sleep(5000);
-            PageObjectHalamanBeranda pageObjectHalamanberanda = new PageObjectHalamanBeranda(driver);
-            pageObjectHalamanberanda.clickKolomSearch();
-            log.log(Status.PASS,"tap kolom search pada Beranda");
-            pageObjectHalamanberanda.setInsertNamaProduct(productid);
-            log.log(Status.PASS,"insert produk yang dicari");
-            pageObjectHalamanberanda.clickPilihanTeratasPencarian();
-            log.log(Status.PASS,"pilih produk teratas dari daftar pencarian");
-
-            Thread.sleep(5000);
-            String actualProductTitle = pageObjectHalamanberanda.getTextFFilterProduct();
-            String expectedProductTitle = "Filter";
-            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
-
-            Assert.assertEquals(actualProductTitle,expectedProductTitle);
-        } catch (InterruptedException e){
-            e.printStackTrace();
-        }
-    }
-
-    @Test(priority = 4)
-    public void addToWishlist(){
+    public void halamanTransaksi(){
         try{
             Thread.sleep(5000);
-            PageObjectWishlist pageObjectWishlist = new PageObjectWishlist(driver);
-            pageObjectWishlist.clickButtonTambahWishlist();
-            log.log(Status.PASS,"Tap untuk Menambahkan produk kedalam wishlist");
-            Thread.sleep(3000);
-            driver.navigate().back();
-
-            Thread.sleep(5000);
-            PageObjectHalamanBeranda pageObjectHalamanBeranda = new PageObjectHalamanBeranda(driver);
-            String actualProductTitle = pageObjectHalamanBeranda.getTitle();
-            String expectedProductTitle = "Ubah";
-            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
-
-            Assert.assertEquals(actualProductTitle,expectedProductTitle);
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
-    }
-
-    @Test(priority = 5)
-    public void goingToHalamanWishlist(){
-        try{
-            Thread.sleep(5000);
-            PageObjectWishlist pageObjectWishlist = new PageObjectWishlist(driver);
-            pageObjectWishlist.clickHalamanWishlist();
-            log.log(Status.PASS,"tap untuk pindah ke Halaman Wishlist");
-
-            Thread.sleep(5000);
-            String actualProductTitle = pageObjectWishlist.getTextHalamanWishlist();
-            String expectedProductTitle = "Wishlist";
-            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
-
-            Assert.assertEquals(actualProductTitle,expectedProductTitle);
+            PageObjectHalamanTransaksiBeta15 pageObjectHalamanTransaksiBeta15 = new PageObjectHalamanTransaksiBeta15(driver);
+            pageObjectHalamanTransaksiBeta15.clickButtonHalamanTransaksi();
+            log.log(Status.PASS,"tap untuk pindah ke Halaman Transaksi");
         }catch (InterruptedException e){
             e.printStackTrace();
         }

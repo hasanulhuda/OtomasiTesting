@@ -4,9 +4,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
-public class PageObjectHalamanPersonal extends BasePage {
+public class PageObjectHalamanPersonalBeta15 extends BasePage {
 
-    public PageObjectHalamanPersonal(AndroidDriver driver) {
+    public PageObjectHalamanPersonalBeta15(AndroidDriver driver) {
         super(driver);
     }
 
@@ -14,8 +14,6 @@ public class PageObjectHalamanPersonal extends BasePage {
     private AndroidElement btnHalamanPersonal;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.TextView")
     private AndroidElement btnGuideProfil1;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView")
-    private AndroidElement btnGuideProfil1versi20;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.TextView")
     private AndroidElement btnGuideProfil2;
 
@@ -24,9 +22,6 @@ public class PageObjectHalamanPersonal extends BasePage {
     }
     public void clickPanduanProfilPertama() throws InterruptedException{
         btnGuideProfil1.click();
-    }
-    public void clickPanduanProfilPertamaVersi20() throws InterruptedException{
-        btnGuideProfil1versi20.click();
     }
     public void clickPanduanProfilKedua() throws InterruptedException{
         btnGuideProfil2.click();
@@ -488,21 +483,79 @@ public class PageObjectHalamanPersonal extends BasePage {
     /*========================================= Halaman Buku Alamat ===================================================*/
 //endregion Halaman Buku Alamat
 
-//region 3. Log Out
+//region 3. Halaman Wishlist
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.widget.TextView")
+    private AndroidElement hyperlinkHalamanWishlist;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView")
+    private AndroidElement textWishlist;
+
+    public void pilihHalamanWishlist() throws InterruptedException{
+        waitForVisibility(hyperlinkHalamanWishlist);
+        hyperlinkHalamanWishlist.click();
+    }
+    public String getTextHalamanWishlist() throws InterruptedException{
+        waitForVisibility(textWishlist);
+        return getAttribute(textWishlist,"Text");
+    }
+//endregion
+
+//region 4.Halaman Resolusi Komplain
+    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[4]/android.widget.TextView")
+    private AndroidElement hyperlinkResolusiKomplain;
+    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView")
+    private AndroidElement textResolusiKomplain;
+
+    public void pilihHalamanResolusiKomplain() throws InterruptedException{
+        waitForVisibility(hyperlinkResolusiKomplain);
+        hyperlinkResolusiKomplain.click();
+    }
+    public String getTextResolusiKomplain() throws InterruptedException{
+        waitForVisibility(textResolusiKomplain);
+        return getAttribute(textResolusiKomplain, "Text");
+    }
+//endregion
+
+//region 5. Halaman Notifikasi
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[5]/android.widget.TextView")
+    private AndroidElement hyperlinkHalamanNotifikasi;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView")
+    private AndroidElement textNotifikasi;
+
+    public void pilihHalamanNotifikasi() throws InterruptedException{
+        waitForVisibility(hyperlinkHalamanNotifikasi);
+        hyperlinkHalamanNotifikasi.click();
+    }
+    public String getTextNotifikasi() throws InterruptedException{
+        waitForVisibility(textNotifikasi);
+        return getAttribute(textNotifikasi,"Text");
+    }
+//endregion
+
+//region 6. Halaman Notifikasi
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[6]/android.widget.TextView")
+    private AndroidElement hyperlinkBantuan;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView")
+    private AndroidElement textBantuan;
+
+    public void pilihHalamanBantuan() throws InterruptedException{
+        waitForVisibility(hyperlinkBantuan);
+        hyperlinkBantuan.click();
+    }
+    public String getTextbantuan() throws InterruptedException{
+        waitForVisibility(textBantuan);
+        return getAttribute(textBantuan,"Text");
+    }
+//endregion
+
+//region 4. Log Out
     /*========================================= LogOut ===================================================*/
     /*========================================= 333333333333333333 ===================================================*/
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[6]/android.widget.TextView")
     private AndroidElement btnLogout;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[7]/android.widget.TextView")
-    private AndroidElement btnLogoutVersi20;
 
     public void clickTombolKeluar() throws InterruptedException{
         waitForVisibility(btnLogout);
         btnLogout.click();
-    }
-    public void clickTombolKeluarVersi20() throws InterruptedException{
-        waitForVisibility(btnLogoutVersi20);
-        btnLogoutVersi20.click();
     }
     /*========================================= 333333333333333333 ===================================================*/
     /*========================================= LogOut ===================================================*/

@@ -14,6 +14,8 @@ public class PageObjectHalamanAwal extends BasePage {
     private AndroidElement guideLogin1;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.view.ViewGroup/android.widget.TextView")
     private AndroidElement guideLogin2;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView")
+    private AndroidElement textHalamanLogin;
 
     public void clickOnGuide1() throws InterruptedException {
         waitForVisibility(guideLogin1);
@@ -22,6 +24,9 @@ public class PageObjectHalamanAwal extends BasePage {
     public void clickOnGuide2() throws InterruptedException {
         waitForVisibility(guideLogin2);
         guideLogin2.click();
+    }
+    public String getTextHalamanLogin() throws InterruptedException{
+        return getAttribute(textHalamanLogin, "text");
     }
     //region v.20
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[5]/android.widget.TextView")
@@ -41,8 +46,7 @@ public class PageObjectHalamanAwal extends BasePage {
     public void clickOnGuide2Versi20() throws InterruptedException {
         waitForVisibility(guideLogin2Versi20);
         guideLogin2Versi20.click();
-        Thread.sleep(5000);
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         guideLogin2Versi20.click();
     }
     public void clickOnGuide3Versi20() throws InterruptedException {

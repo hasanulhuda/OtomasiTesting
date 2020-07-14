@@ -3,13 +3,11 @@
 <suite name="Suite" parallel="false">
     <test verbose="2" preserve-order="true" name="D:/Test/OtomasiTesting">
         <classes>
-            <class name="Login">
+            <class name="LoginVersi20">
                 <methods>
                     <include name="halamanAwalKodePos"></include>
-                    <include name="loginInvalidUserID"></include>
-                    <include name="loginInvalidPassword"></include>
-                    <include name="loginSuccessfull"></include>
-                    <include name="logOut"></include>
+<!--                    <include name="loginSuccessfull"></include>-->
+<!--                    <include name="logOutVersi20"></include>-->
                 </methods>
             </class>
         </classes>

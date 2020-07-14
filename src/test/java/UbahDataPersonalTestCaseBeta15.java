@@ -1,21 +1,16 @@
 import com.aventstack.extentreports.Status;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
-import javafx.scene.layout.Priority;
-import jdk.internal.dynalink.beans.StaticClass;
 import koneksi.Koneksi;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.PageObjectHalamanAwal;
-import pages.PageObjectHalamanBeranda;
-import pages.PageObjectHalamanLogin;
-import pages.PageObjectHalamanPersonal;
+import pages.*;
 import reports.ExtentReportsDemo;
 import utils.Utility;
 
 import java.util.List;
 
-public class UbahDataPersonalTestCase extends ExtentReportsDemo {
+public class UbahDataPersonalTestCaseBeta15 extends ExtentReportsDemo {
 
     AndroidDriver driver = Utility.getAndroidDriver();
 
@@ -437,6 +432,81 @@ public class UbahDataPersonalTestCase extends ExtentReportsDemo {
         }
     }
     //endregion Halaman Buku Alamat
+
+    //region Halaman Wishlist(Priority = 3)
+    @Test(priority = 3)
+    public void halamanWishlist(){
+        try {
+            Thread.sleep(5000);
+            PageObjectHalamanPersonalBeta15 pageObjectHalamanPersonalBeta15 = new PageObjectHalamanPersonalBeta15(driver);
+            pageObjectHalamanPersonalBeta15.pilihHalamanWishlist();
+
+            Thread.sleep(5000);
+            String actualTitle = pageObjectHalamanPersonalBeta15.getTextHalamanWishlist();
+            String expectedTitle = "Wishlist";
+            System.out.println("Actual Title is - "+actualTitle+"\n"+"Expected Title is -"+expectedTitle);
+
+            Assert.assertEquals(actualTitle,expectedTitle);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+    //endregion
+
+    //region Halaman Resolusi Komplain
+    @Test(priority = 3)
+    public void halamanResolusiKomplain(){
+        try{
+            Thread.sleep(5000);
+            PageObjectHalamanPersonalBeta15 pageObjectHalamanPersonalBeta15 = new PageObjectHalamanPersonalBeta15(driver);
+            pageObjectHalamanPersonalBeta15.pilihHalamanResolusiKomplain();
+            Thread.sleep(5000);
+            String actualTitle = pageObjectHalamanPersonalBeta15.getTextResolusiKomplain();
+            String expectedTitle = "Resolusi Komplain";
+            System.out.println("Actual Title is -"+actualTitle+"\n"+"Expected Title is -"+expectedTitle);
+
+            Assert.assertEquals(actualTitle,expectedTitle);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+    //endregion
+
+    //region Notifikasi
+    public void halamanNotifikasi(){
+        try{
+            Thread.sleep(5000);
+            PageObjectHalamanPersonalBeta15 pageObjectHalamanPersonalBeta15 = new PageObjectHalamanPersonalBeta15(driver);
+            pageObjectHalamanPersonalBeta15.pilihHalamanNotifikasi();
+            Thread.sleep(5000);
+            String actualTitle = pageObjectHalamanPersonalBeta15.getTextNotifikasi();
+            String expectedTitle = "Notifikasi";
+            System.out.println("Actual Title is -"+actualTitle+"\n"+"Expected Title is -"+expectedTitle);
+
+            Assert.assertEquals(actualTitle,expectedTitle);
+        }catch(InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+    //endregion
+
+    //region Bantuan
+    public void halamanBantuan(){
+        try{
+            Thread.sleep(5000);
+            PageObjectHalamanPersonalBeta15 pageObjectHalamanPersonalBeta15 = new PageObjectHalamanPersonalBeta15(driver);
+            pageObjectHalamanPersonalBeta15.pilihHalamanBantuan();
+            Thread.sleep(5000);
+            String actualTitle = pageObjectHalamanPersonalBeta15.getTextbantuan();
+            String expectedTitle = "Bantuan";
+            System.out.println("Actual Title is -" +actualTitle+"\n"+"Expected Title is -"+expectedTitle);
+
+            Assert.assertEquals(actualTitle,expectedTitle);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+    //endregion
 
 }
 

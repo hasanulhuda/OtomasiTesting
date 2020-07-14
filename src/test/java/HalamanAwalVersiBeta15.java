@@ -6,7 +6,7 @@ import pages.PageObjectHalamanLogin;
 import reports.ExtentReportsDemo;
 import utils.Utility;
 
-public class HalamanAwalVersi20 extends ExtentReportsDemo {
+public class HalamanAwalVersiBeta15 extends ExtentReportsDemo {
 
     AndroidDriver driver = Utility.getAndroidDriver();
 
@@ -20,10 +20,11 @@ public class HalamanAwalVersi20 extends ExtentReportsDemo {
             PageObjectHalamanAwal pageObjectHalamanAwal = new PageObjectHalamanAwal(driver);
             pageObjectHalamanAwal.clickOnGuide1Versi20();
             log.log(Status.PASS,"Object Guide Pengguna Pertama");
+            Thread.sleep(4000);
             pageObjectHalamanAwal.clickOnGuide2Versi20();
             log.log(Status.PASS,"Object Guide Pengguna Kedua");
             pageObjectHalamanAwal.clickOnGuide2();
-            log.log(Status.PASS,"Object Guide Pengguna Kedua");
+            log.log(Status.PASS,"Klik Button Ubah");
             pageObjectHalamanAwal.clickButtonKodePos();
             log.log(Status.PASS,"Button Untuk Input lokasi menggunakan Kode POS");
             pageObjectHalamanAwal.setInsertKodePos(kodepos);
@@ -40,10 +41,10 @@ public class HalamanAwalVersi20 extends ExtentReportsDemo {
         try{
             PageObjectHalamanAwal pageObjectHalamanAwal = new PageObjectHalamanAwal(driver);
             Thread.sleep(7000);
-            pageObjectHalamanAwal.clickOnGuide1Versi20();
-            log.log(Status.PASS,"Object Guide Pengguna Pertama");
-            pageObjectHalamanAwal.clickOnGuide2Versi20();
-            log.log(Status.PASS,"Object Guide Pengguna Kedua");
+//            pageObjectHalamanAwal.clickOnGuide1Versi20();
+//            log.log(Status.PASS,"Object Guide Pengguna Pertama");
+//            pageObjectHalamanAwal.clickOnGuide2Versi20();
+//            log.log(Status.PASS,"Object Guide Pengguna Kedua");
             pageObjectHalamanAwal.clickOnGuide2();
             log.log(Status.PASS,"Object Guide Pengguna Kedua");
             pageObjectHalamanAwal.clickButtonKodeWilayah();

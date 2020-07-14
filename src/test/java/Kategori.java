@@ -34,6 +34,13 @@ public class Kategori extends ExtentReportsDemo {
             PageObjectHalamanLogin pageObjectHalamanLogin = new PageObjectHalamanLogin(driver);
             pageObjectHalamanLogin.clickHalamanLogin();
             log.log(Status.PASS,"Memilih Lokasi berdasar Kode Wilayah Berhasil");
+
+            Thread.sleep(5000);
+            String actualProductTitle = pageObjectHalamanLogin.getTitlekHalamanLogin();
+            String expectedProductTitle = "Akun Saya";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -72,6 +79,7 @@ public class Kategori extends ExtentReportsDemo {
     @Test(priority = 3)
     public void kategoriFashion(){
         try{
+            Thread.sleep(7000);
             PageObjectHalamanKategori pageObjectHalamanKategori = new PageObjectHalamanKategori(driver);
             pageObjectHalamanKategori.clickHalamanKategori();
             log.log(Status.PASS,"klik icon kategori untuk pindah ke halaman Kategori");
@@ -86,26 +94,57 @@ public class Kategori extends ExtentReportsDemo {
             Thread.sleep(3000);
             pageObjectHalamanKategori.fashionPakaianWanita();
             log.log(Status.PASS,"fashion pakaian wanita Berhasil dipilih");
+            Thread.sleep(10000);
+            String actualProductKategori1 = pageObjectHalamanKategori.getTextPakaianWanita();
+            String expectedProductKategori1 = "Pakaian Wanita";
+            System.out.println("actual title -"+actualProductKategori1+"\n"+"expected title -"+actualProductKategori1);
+
+            Assert.assertEquals(actualProductKategori1,expectedProductKategori1);
+
             Thread.sleep(5000);
             driver.navigate().back();
             Thread.sleep(3000);
             pageObjectHalamanKategori.fashionPakaianMuslimWanita();
             log.log(Status.PASS,"fashion pakaian Muslim Wanita Berhasil dipilih");
+            Thread.sleep(10000);
+            String actualProductKategori2 = pageObjectHalamanKategori.getTextPakaianMuslimWanita();
+            String expectedProductKategori2 = "Pakaian Muslim Wanita";
+            System.out.println("actual title -"+actualProductKategori2+"\n"+"expected title -"+actualProductKategori2);
+
+            Assert.assertEquals(actualProductKategori2,expectedProductKategori2);
             Thread.sleep(5000);
             driver.navigate().back();
             Thread.sleep(3000);
             pageObjectHalamanKategori.fashionPakaianTidurWanita();
             log.log(Status.PASS,"fashion pakaian Tidur Wanita Berhasil dipilih");
+            Thread.sleep(10000);
+            String actualProductKategori3 = pageObjectHalamanKategori.getTextPakaianTidurWanita();
+            String expectedProductKategori3 = "Pakaian Tidur Wanita";
+            System.out.println("actual title -"+actualProductKategori3+"\n"+"expected title -"+actualProductKategori3);
+
+            Assert.assertEquals(actualProductKategori3,expectedProductKategori3);
             Thread.sleep(5000);
             driver.navigate().back();
             Thread.sleep(3000);
             pageObjectHalamanKategori.fashionPakaianDalamWanita();
             log.log(Status.PASS,"fashion pakaian Dalam Wanita Berhasil dipilih");
+            Thread.sleep(10000);
+            String actualProductKategori4 = pageObjectHalamanKategori.getTextPakaianDalamWanita();
+            String expectedProductKategori4 = "Pakaian Dalam Wanita";
+            System.out.println("actual title -"+actualProductKategori4+"\n"+"expected title -"+actualProductKategori4);
+
+            Assert.assertEquals(actualProductKategori4,expectedProductKategori4);
             Thread.sleep(5000);
             driver.navigate().back();
             Thread.sleep(3000);
             pageObjectHalamanKategori.fashionAksesorisWanita();
             log.log(Status.PASS,"fashion Aksesoris Wanita Berhasil dipilih");
+            Thread.sleep(10000);
+            String actualProductKategori5 = pageObjectHalamanKategori.getTextPakaianDalamWanita();
+            String expectedProductKategori5 = "Aksesoris Wanita";
+            System.out.println("actual title -"+actualProductKategori5+"\n"+"expected title -"+actualProductKategori5);
+
+            Assert.assertEquals(actualProductKategori5,expectedProductKategori5);
         }catch (Exception e){
             e.printStackTrace();
         }

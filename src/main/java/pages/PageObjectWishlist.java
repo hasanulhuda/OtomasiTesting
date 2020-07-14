@@ -17,8 +17,13 @@ public class PageObjectWishlist extends BasePage {
     private AndroidElement btnAddWishlist;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.widget.TextView")
     private AndroidElement btnHalamanWishlist;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView")
+    private AndroidElement textHalamanWishlist;
 
-
+    public String getTextHalamanWishlist() throws InterruptedException{
+        waitForVisibility(textHalamanWishlist);
+        return getAttribute(textHalamanWishlist,"text");
+    }
     public void clickDetailProduct() throws InterruptedException{
         waitForVisibility(btnProductDetail);
         btnProductDetail.click();

@@ -10,7 +10,7 @@
 <!--                    <include name="hapusAlamatTerdaftar"></include>-->
 <!--                </methods>-->
 <!--            </class>-->
-<!--            <class name="UbahMetodePengiriman">-->
+<!--            <class name="UbahMetodePengirimanVersi20">-->
 <!--                <methods>-->
 <!--                    <include name="halamanAwalKodePos"></include>-->
 <!--                    <include name="loginSuccessfull"></include>-->
@@ -19,13 +19,13 @@
 <!--                    <include name="metodeKodePOS"></include>-->
 <!--                </methods>-->
 <!--            </class>-->
-            <class name="UbahMetodePengiriman">
-                <methods>
-                    <include name="halamanAwalKodePos"></include>
-                    <include name="loginSuccessfull"></include>
-                    <include name="metodeAmbildiAlamatSudahAda"></include>
-                </methods>
-            </class>
+<!--            <class name="UbahMetodePengiriman">-->
+<!--                <methods>-->
+<!--                    <include name="halamanAwalKodePos"></include>-->
+<!--                    <include name="loginSuccessfull"></include>-->
+<!--                    <include name="metodeAmbildiAlamatSudahAda"></include>-->
+<!--                </methods>-->
+<!--            </class>-->
 <!--            <class name="UbahMetodePengiriman">-->
 <!--                <methods>-->
 <!--                    <include name="halamanAwalKodePos"></include>-->
@@ -36,13 +36,13 @@
 <!--                    <include name="metodeAmbildiAlamatSudahAda"></include>-->
 <!--                </methods>-->
 <!--            </class>-->
-<!--            <class name="UbahMetodePengiriman">-->
-<!--                <methods>-->
-<!--                    <include name="halamanAwalKodePos"></include>-->
-<!--                    <include name="loginSuccessfull"></include>-->
-<!--                    <include name="metodeAmbildiToko"></include>-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="UbahMetodePengirimanVersi20">
+                <methods>
+                    <include name="halamanAwalKodePos"></include>
+                    <include name="loginSuccessfull"></include>
+                    <include name="metodeAmbildiToko"></include>
+                </methods>
+            </class>
         </classes>
 
     </test>

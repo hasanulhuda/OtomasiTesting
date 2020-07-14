@@ -3,11 +3,14 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.*;
+import pages.PageObjectHalamanAwal;
+import pages.PageObjectHalamanBeranda;
+import pages.PageObjectHalamanLogin;
+import pages.PageObjectHalamanPersonal;
 import reports.ExtentReportsDemo;
 import utils.Utility;
 
-public class UbahMetodePengiriman extends ExtentReportsDemo {
+public class UbahMetodePengirimanVersi20 extends ExtentReportsDemo {
 
     AndroidDriver driver = Utility.getAndroidDriver();
 
@@ -17,18 +20,15 @@ public class UbahMetodePengiriman extends ExtentReportsDemo {
     @Test(priority = 1)
     public void halamanAwalKodePos(){
         try {
-            Thread.sleep(7000);
+            Thread.sleep(10000);
             PageObjectHalamanAwal pageObjectHalamanAwal = new PageObjectHalamanAwal(driver);
-            Thread.sleep(7000);
-//            pageObjectHalamanAwal.clickOnGuide1Versi20();
-//            log.log(Status.PASS,"Object Guide Pengguna Pertama");
-//            Thread.sleep(7000);
-//            pageObjectHalamanAwal.clickOnGuide2Versi20();
-//            log.log(Status.PASS,"Object Guide Pengguna Kedua");
-            pageObjectHalamanAwal.clickOnGuide1();
+            pageObjectHalamanAwal.clickOnGuide1Versi20();
             log.log(Status.PASS,"Object Guide Pengguna Pertama");
-            pageObjectHalamanAwal.clickOnGuide2();
+            Thread.sleep(5000);
+            pageObjectHalamanAwal.clickOnGuide2Versi20();
             log.log(Status.PASS,"Object Guide Pengguna Kedua");
+            pageObjectHalamanAwal.clickOnGuide2();
+            log.log(Status.PASS,"Klik Button Ubah pada Halaman Utama");
             pageObjectHalamanAwal.clickButtonKodePos();
             log.log(Status.PASS,"Button Untuk Input lokasi menggunakan Kode POS");
             pageObjectHalamanAwal.setInsertKodePos(kodepos);
@@ -109,6 +109,7 @@ public class UbahMetodePengiriman extends ExtentReportsDemo {
         pageObjectHalamanBeranda.clickPilihToko();
         log.log(Status.PASS,"");
 
+        Thread.sleep(5000);
         String actualProductTitle = pageObjectHalamanBeranda.getTextHalamanHome();
         String expectedProductTitle = "Home";
         System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);

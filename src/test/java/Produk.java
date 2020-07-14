@@ -14,7 +14,9 @@ public class Produk extends ExtentReportsDemo {
     AndroidDriver driver = Utility.getAndroidDriver();
 
     String user = "0895338021090", kodepos = "15155", password ="tapaukeyi";
-    String productid ="kacang", productBDPAAI="20079790", productBDnonPAAI="20101206";
+    String productid ="20079790", productBDPAAI="", productBDnonPAAI="20100669"
+            , productBDJNE="20074452", productBPJNE="20069260", productBP="20065806"
+            , productDP="20042702", ProductDPJNE="20073427";
     PageObjectProduk pageObjectProduk;
 
     @Test(priority = 1)
@@ -37,6 +39,13 @@ public class Produk extends ExtentReportsDemo {
             PageObjectHalamanLogin pageObjectHalamanLogin = new PageObjectHalamanLogin(driver);
             pageObjectHalamanLogin.clickHalamanLogin();
             log.log(Status.PASS,"Memilih Lokasi berdasar Kode Wilayah Berhasil");
+
+            Thread.sleep(5000);
+            String actualProductTitle = pageObjectHalamanLogin.getTitlekHalamanLogin();
+            String expectedProductTitle = "Akun Saya";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
@@ -76,6 +85,9 @@ public class Produk extends ExtentReportsDemo {
 
     @Test(priority = 3)
     public void produkPencarian(){
+        String productid ="20079790", productBDPAAI="", productBDnonPAAI="20100669"
+                , productBDJNE="20074452", productBPJNE="20069260", productBP="20065806"
+                , productDP="20042702", ProductDPJNE="20073427";
         try {
             Thread.sleep(5000);
             PageObjectHalamanBeranda pageObjectHalamanberanda = new PageObjectHalamanBeranda(driver);
@@ -88,30 +100,45 @@ public class Produk extends ExtentReportsDemo {
             Thread.sleep(5000);
             driver.navigate().back();
 
+            Thread.sleep(5000);
+            String actualProductTitle = pageObjectHalamanberanda.getTextFFilterProduct();
+            String expectedProductTitle = "Filter";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         } catch (InterruptedException e){
             e.printStackTrace();
         }
     }
 
-    @Test(priority = 3)
+    @Test(priority = 4)
     public void produkBDPAAI(){
         try {
             Thread.sleep(5000);
             PageObjectHalamanBeranda pageObjectHalamanberanda = new PageObjectHalamanBeranda(driver);
             pageObjectHalamanberanda.clickKolomSearch();
             log.log(Status.PASS,"tap kolom search pada Beranda");
+            driver.hideKeyboard();
+            Thread.sleep(4000);
             pageObjectHalamanberanda.setInsertNamaProduct(productBDPAAI);
             log.log(Status.PASS,"insert produk yang dicari");
             pageObjectHalamanberanda.clickPilihanTeratasPencarian();
             log.log(Status.PASS,"pilih produk teratas dari daftar pencarian");
-            Thread.sleep(5000);
 
+            Thread.sleep(5000);
+            String actualProductTitle = pageObjectHalamanberanda.getTextFFilterProduct();
+            String expectedProductTitle = "Filter";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
+            Thread.sleep(10000);
+            driver.navigate().back();
         } catch (InterruptedException e){
             e.printStackTrace();
         }
     }
 
-    @Test(priority = 3)
+    @Test(priority = 5)
     public void produkBDnonPAAI(){
         try {
             Thread.sleep(5000);
@@ -122,27 +149,43 @@ public class Produk extends ExtentReportsDemo {
             log.log(Status.PASS,"insert produk yang dicari");
             pageObjectHalamanberanda.clickPilihanTeratasPencarian();
             log.log(Status.PASS,"pilih produk teratas dari daftar pencarian");
-            Thread.sleep(5000);
 
+            Thread.sleep(5000);
+            String actualProductTitle = pageObjectHalamanberanda.getTextFFilterProduct();
+            String expectedProductTitle = "Filter";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
+            Thread.sleep(10000);
+            driver.navigate().back();
         } catch (InterruptedException e){
             e.printStackTrace();
         }
     }
 
-    @Test(priority = 4)
+    @Test(priority = 6)
     public void produkBanner(){
         try{
             Thread.sleep(5000);
             pageObjectProduk = new PageObjectProduk(driver);
             pageObjectProduk.clickProdukBanner();
-            Thread.sleep(7000);
+            Thread.sleep(10000);
             driver.navigate().back();
+            Thread.sleep(10000);
+            driver.navigate().back();
+
+            PageObjectHalamanBeranda pageObjectHalamanBeranda = new PageObjectHalamanBeranda(driver);
+            String actualProductTitle = pageObjectHalamanBeranda.getTitle();
+            String expectedProductTitle = "Ubah";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    @Test(priority = 5)
+    @Test(priority = 7)
     public void produkOfficialStore(){
         try{
             Thread.sleep(5000);
@@ -150,8 +193,7 @@ public class Produk extends ExtentReportsDemo {
             pageObjectProduk.clickHyperlinkOfficialStore();
             pageObjectProduk.clickProdukOfficialStore();
             Thread.sleep(4000);
-            driver.navigate().
-                    back();
+            driver.navigate().back();
             Thread.sleep(2000);
             driver.navigate().back();
         }catch (Exception e){

@@ -3,7 +3,13 @@
 <suite name="Suite" parallel="false">
     <test verbose="2" preserve-order="true" name="D:/Test/OtomasiTesting">
         <classes>
-            <class name="Produk"></class>
+            <class name="Produk">
+                <methods>
+                    <include name="halamanAwalKodePos"></include>
+                    <include name="loginSuccessfull"></include>
+                    <include name="produkBanner"></include>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

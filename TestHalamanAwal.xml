@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="false">
     <test verbose="2" preserve-order="true" name="D:/Test/OtomasiTesting">
         <classes>
-            <class name="HalamanAwal">
+            <class name="HalamanAwalVersiBeta15">
                 <methods>
                     <include name="halamanAwalKodePos"></include>
                     <include name="halamanAwalKodeWilayah"></include>

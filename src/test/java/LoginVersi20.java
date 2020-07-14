@@ -1,7 +1,9 @@
 import com.aventstack.extentreports.Status;
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import koneksi.Koneksi;
+import koneksi.KoneksiKlik;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.PageObjectHalamanAwal;
@@ -11,24 +13,49 @@ import pages.PageObjectHalamanPersonal;
 import reports.ExtentReportsDemo;
 import utils.Utility;
 
-import java.util.List;
-
-public class Login extends ExtentReportsDemo {
+public class LoginVersi20 extends ExtentReportsDemo {
 
     AndroidDriver driver = Utility.getAndroidDriver();
 
-    String user = "0895338021090", kodepos = "15155", password ="tapaukeyi",
+    String user = "082370683185", kodepos = "15155", password ="tapaukeyi",
     invaliduser="Hasanulhuda", invalidpassword ="tapaukeyi1";
+
+//    @Test
+//    public void testDB(){
+//        KoneksiKlik cn = new KoneksiKlik();
+//        try{
+//            Thread.sleep(5000);
+//            /*------------- OTP Code -------------------*/
+//            String isSend= cn.getEmailValid(user);
+//            String mailValidation = isSend;
+//
+//            if(mailValidation.equals("1")){
+//                System.out.println("Sudah Terkirim Dund");
+//            }else if (mailValidation.equals("0")){
+//                System.out.println("Yah!! Tidak Terkirim Pesanmu");
+//            } else {
+//
+//            }
+//            /*------------- OTP Code -------------------*/
+//
+//        }catch (InterruptedException e){
+//            e.printStackTrace();
+//        }
+//    }
 
     @Test(priority = 1)
     public void halamanAwalKodePos(){
         try {
-            Thread.sleep(7000);
+            Thread.sleep(10000);
             PageObjectHalamanAwal pageObjectHalamanAwal = new PageObjectHalamanAwal(driver);
-            pageObjectHalamanAwal.clickOnGuide1();
+            Thread.sleep(5000);
+            pageObjectHalamanAwal.clickOnGuide1Versi20();
             log.log(Status.PASS,"Object Guide Pengguna Pertama");
-            pageObjectHalamanAwal.clickOnGuide2();
+            Thread.sleep(5000);
+            pageObjectHalamanAwal.clickOnGuide2Versi20();
             log.log(Status.PASS,"Object Guide Pengguna Kedua");
+            pageObjectHalamanAwal.clickOnGuide2();
+            log.log(Status.PASS,"Klik Button Ubah pada Halaman Utama");
             pageObjectHalamanAwal.clickButtonKodePos();
             log.log(Status.PASS,"Button Untuk Input lokasi menggunakan Kode POS");
             pageObjectHalamanAwal.setInsertKodePos(kodepos);
@@ -40,7 +67,8 @@ public class Login extends ExtentReportsDemo {
             pageObjectHalamanLogin.clickHalamanLogin();
             log.log(Status.PASS,"Memilih Lokasi berdasar Kode Wilayah Berhasil");
 
-            Thread.sleep(5000);
+
+            Thread.sleep(10000);
             String actualProductTitle = pageObjectHalamanLogin.getTitlekHalamanLogin();
             String expectedProductTitle = "Akun Saya";
             System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
@@ -109,8 +137,8 @@ public class Login extends ExtentReportsDemo {
         try {
             Thread.sleep(5000);
             PageObjectHalamanLogin pageObjectHalamanLogin = new PageObjectHalamanLogin(driver);
-//            pageObjectHalamanLogin.clickPilihanLogin();
-//            Thread.sleep(3000);
+            pageObjectHalamanLogin.clickPilihanLogin();
+            Thread.sleep(3000);
             pageObjectHalamanLogin.setInsertUserID(user);
             log.log(Status.PASS,"insert valid User");
             Thread.sleep(3000);
@@ -135,34 +163,32 @@ public class Login extends ExtentReportsDemo {
     }
 
     @Test(priority = 5)
-    public void logOut(){
-        try{
+    public void logOutVersi20() {
+        try {
             PageObjectHalamanPersonal pageObjectHalamanPersonal = new PageObjectHalamanPersonal(driver);
-            Thread.sleep(5000);
+            Thread.sleep(8000);
             pageObjectHalamanPersonal.clickHalamanPersonal();
-            log.log(Status.PASS,"klik icon Profile untuk pindah ke Halaman Personal");
+            log.log(Status.PASS, "klik icon Profile untuk pindah ke Halaman Personal");
             Thread.sleep(5000);
-            pageObjectHalamanPersonal.clickPanduanProfilPertama();
-            log.log(Status.PASS,"tap panduan penggunaan pertama pada Halaman Personal");
+            pageObjectHalamanPersonal.clickPanduanProfilPertamaVersi20();
+            log.log(Status.PASS, "tap panduan penggunaan pertama pada Halaman Personal");
             Thread.sleep(5000);
-            pageObjectHalamanPersonal.clickPanduanProfilKedua();
-            log.log(Status.PASS,"tap panduan penggunaan kedua pada Halaman Personal");
             //===================== SCROLL TO TEXT ======================//
             Thread.sleep(5000);
             driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"Keluar\").instance(0))"));
-            log.log(Status.PASS,"melakukan scroll sampai muncul kata 'keluar' pada tampilan layar");
+            log.log(Status.PASS, "melakukan scroll sampai muncul kata 'keluar' pada tampilan layar");
             //===================== SCROLL TO TEXT ======================//
             Thread.sleep(5000);
-            pageObjectHalamanPersonal.clickTombolKeluar();
-            log.log(Status.PASS,"klik tombol logout dan logout berhasil");
+            pageObjectHalamanPersonal.clickTombolKeluarVersi20();
+            log.log(Status.PASS, "klik tombol logout dan logout berhasil");
 
             PageObjectHalamanBeranda pageObjectHalamanBeranda = new PageObjectHalamanBeranda(driver);
             String actualProductTitle = pageObjectHalamanBeranda.getTitle();
             String expectedProductTitle = "Ubah";
-            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+            System.out.println("actual title -" + actualProductTitle + "\n" + "expected title -" + expectedProductTitle);
 
-            Assert.assertEquals(actualProductTitle,expectedProductTitle);
-        }catch (InterruptedException e){
+            Assert.assertEquals(actualProductTitle, expectedProductTitle);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
