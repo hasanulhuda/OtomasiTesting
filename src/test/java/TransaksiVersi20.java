@@ -113,7 +113,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
             Thread.sleep(4000);
             pageObjectTransaksi.clickButtonBeliProduct();
             Thread.sleep(5000);
-            pageObjectTransaksi.clickButtonBeliProduct();
+//            pageObjectTransaksi.clickButtonBeliProduct();
             Thread.sleep(5000);
             log.log(Status.PASS,"klik tombol beli untuk menambahkan produk kedalam keranjang belanja");
             Thread.sleep(3000);
