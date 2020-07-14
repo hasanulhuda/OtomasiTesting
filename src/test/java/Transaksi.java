@@ -101,7 +101,7 @@ public class Transaksi extends ExtentReportsDemo {
             pageObjectTransaksi.clickDetailProductToko1();
 //            pageObjectTransaksi.clickDetailProductKlik1();
             log.log(Status.PASS,"klik untuk melihat detail produk");
-//            pageObjectTransaksi.clickGuideCariTokoygMenjual();
+            pageObjectTransaksi.clickGuideCariTokoygMenjual();
             log.log(Status.PASS,"tap 'Mengerti' untuk panduan pencarian toko yang menjual produk");
             Thread.sleep(4000);
             //===================== SCROLL TO TEXT ======================//
@@ -152,7 +152,7 @@ public class Transaksi extends ExtentReportsDemo {
         pageObjectTransaksi.clickKonfirmasiAlamatPengiriman();
         log.log(Status.PASS,"klik lanjut jika sudah melakukan konfirmasi alamat pengiriman");
 
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         String actualProductTitle = pageObjectTransaksi.getTextPembayaran();
         String expectedProductTitle = "Pembayaran";
         System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
@@ -218,7 +218,7 @@ public class Transaksi extends ExtentReportsDemo {
             //===================== SCROLL TO TEXT ======================//
             log.log(Status.PASS,"melakukan Scroll hingga 'CIMB Rekening POnsel' tampil pada Tampilan Layar");
 
-            Thread.sleep(4000);
+            Thread.sleep(7000);
             pageObjectTransaksi.clickMetodePembayaranCIMBNiagaRekeningPonsel();
             log.log(Status.PASS,"klik metode pembayaran menggunakan CIMB Rekening Ponsel");
 //            pageObjectTransaksi.clickKolomTokenRekeningPonsel();

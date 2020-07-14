@@ -103,7 +103,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
             pageObjectTransaksi.clickDetailProductToko1();
 //            pageObjectTransaksi.clickDetailProductKlik1();
             log.log(Status.PASS,"klik untuk melihat detail produk");
-            Thread.sleep(5000);
+            Thread.sleep(7000);
             pageObjectTransaksi.clickGuideCariTokoygMenjual();
             log.log(Status.PASS,"tap 'Mengerti' untuk panduan pencarian toko yang menjual produk");
             Thread.sleep(4000);

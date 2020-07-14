@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="false">
     <test verbose="2" preserve-order="true" name="Transaction Test">
         <classes>
-            <class name="Transaksi">
+            <class name="TransaksiVersi20">
                 <methods>
                     <include name="halamanAwalKodePos"></include>
                     <include name="loginSuccessfull"></include>
