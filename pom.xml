@@ -57,7 +57,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <forkMode>once</forkMode>
                     <suiteXmlFiles>
-                        <suiteXmlFile>Transaksi.xml</suiteXmlFile>
+                        <suiteXmlFile>TestTransaksi.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
