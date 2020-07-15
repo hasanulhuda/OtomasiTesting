@@ -16,6 +16,8 @@ public class PageObjectTransaksi extends BasePage{
     private AndroidElement allowPermission;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View[2]")
     private AndroidElement textPembayaran;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView")
+    private AndroidElement textKeranjangbelanja;
 
     public void clickPayNow() throws InterruptedException{
         waitForVisibility(btnPayNow);
@@ -27,6 +29,9 @@ public class PageObjectTransaksi extends BasePage{
     }
     public String getTextPembayaran(){
         return getAttribute(textPembayaran, "text");
+    }
+    public String getTextKeranjangBelanja(){
+        return getAttribute(textKeranjangbelanja, "text");
     }
 
 //region Jenis Produk
@@ -99,6 +104,75 @@ public class PageObjectTransaksi extends BasePage{
     private AndroidElement btnLanjutSetelahKonfirmAlamat;
     @AndroidFindBy(id = "android:id/btnClose")
     private AndroidElement btnCloseErrorCheckOut;
+
+    // Metode Kirim Ke Alamat
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[4]/android.view.ViewGroup[1]/android.widget.TextView")
+    private AndroidElement btnMetodeKirimKeAlamat;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[5]/android.widget.ImageView")
+    private AndroidElement listAlamatKirimKeAlamat;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]")
+    private AndroidElement btnAlamatKirimKeAlamat1;
+
+    public void clickPilihMetodeKirimKeAlamat() throws InterruptedException{
+        waitForVisibility(btnMetodeKirimKeAlamat);
+        btnMetodeKirimKeAlamat.click();
+    }
+    public void listviewAlamatKirimKeAlamat() throws InterruptedException{
+        waitForVisibility(listAlamatKirimKeAlamat);
+        listAlamatKirimKeAlamat.click();
+    }
+    public void clickPilihAlamatKirimKeAlamat1() throws InterruptedException{
+        waitForVisibility(btnAlamatKirimKeAlamat1);
+        btnAlamatKirimKeAlamat1.click();
+    }
+    // Metode Kirim Ke Alamat
+
+    // Metode Ambil di Toko
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[4]/android.view.ViewGroup[2]/android.widget.TextView")
+    private AndroidElement btnMetodeAmbilDiToko;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[5]/android.widget.ImageView")
+    private AndroidElement listAlamatAmbildiToko;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView")
+    private AndroidElement btnKolomKodeTokoAmbildiToko;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.EditText")
+    private AndroidElement insertKolomKodeTokoAmbildiToko;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView")
+    private AndroidElement pilihTeratasKodeTokoAmbildiToko;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup")
+    private AndroidElement radiobuttonPilihTokoAmbildiToko;
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Google Map\"]/android.view.View[8]")
+    private AndroidElement btnPilihToko;
+
+    public void clickPilihMetodeAmbildiToko() throws InterruptedException{
+        waitForVisibility(btnMetodeAmbilDiToko);
+        btnMetodeAmbilDiToko.click();
+    }
+    public void listviewAlamatAmbildiToko() throws InterruptedException{
+        waitForVisibility(listAlamatAmbildiToko);
+        listAlamatAmbildiToko.click();
+    }
+    public void btnKolomKodetokoAmbildiToko() throws InterruptedException{
+        waitForVisibility(btnKolomKodeTokoAmbildiToko);
+        btnKolomKodeTokoAmbildiToko.click();
+    }
+    public void insertKolomKodetokoAmbildiToko(String kodetoko) throws InterruptedException{
+        waitForVisibility(insertKolomKodeTokoAmbildiToko);
+        sendKeys(insertKolomKodeTokoAmbildiToko, kodetoko);
+    }
+    public void pilihTeratasTokoAmbilDiToko() throws InterruptedException{
+        waitForVisibility(pilihTeratasKodeTokoAmbildiToko);
+        pilihTeratasKodeTokoAmbildiToko.click();
+    }
+    public void radiobuttonPilihTokoAmbilDiToko() throws InterruptedException{
+        waitForVisibility(pilihTeratasKodeTokoAmbildiToko);
+        pilihTeratasKodeTokoAmbildiToko.click();
+    }
+    public void clickPilihToko() throws InterruptedException{
+        waitForVisibility(btnPilihToko);
+        btnPilihToko.click();
+    }
+
+    //Metode Ambil di Toko
 
     public String getErrorTextCheckOut() throws InterruptedException{
         return getAttribute(textErrorCheckOut,"text");
@@ -246,6 +320,16 @@ public class PageObjectTransaksi extends BasePage{
         listLinkAja.click();
     }
     //endregion
+
+    //region  close
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/cq/android.widget.TextView")
+    private AndroidElement closePembayaran;
+
+    public void clickTutupKonfirmasiPembayaran() throws InterruptedException {
+        waitForVisibility(closePembayaran);
+        closePembayaran.click();
+    }
+    //endregion close
 
 //endregion
 

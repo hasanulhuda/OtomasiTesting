@@ -19,7 +19,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
     @Test(priority = 1)
     public void halamanAwalKodePos(){
         try {
-            Thread.sleep(10000);
+            Thread.sleep(15000);
             PageObjectHalamanAwal pageObjectHalamanAwal = new PageObjectHalamanAwal(driver);
             pageObjectHalamanAwal.clickOnGuide1Versi20();
             log.log(Status.PASS,"Object Guide Pengguna Pertama");
@@ -84,7 +84,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
 
     @Test(priority = 3)
     public void transaksiKolomPencarian(){
-        String productid ="10017288", productBDPAAI="", productBDnonPAAI="20100669"
+        String productToko ="10017288", productBDPAAI="", productBDnonPAAI="20100669"
                 , productBDJNE="20074452", productBPJNE="20069260", productBP="20065806"
                 , productDP="20042702", ProductDPJNE="20073427";
         try {
@@ -92,7 +92,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
             PageObjectHalamanBeranda pageObjectHalamanberanda = new PageObjectHalamanBeranda(driver);
             pageObjectHalamanberanda.clickKolomSearch();
             log.log(Status.PASS,"tap kolom search pada Beranda");
-            pageObjectHalamanberanda.setInsertNamaProduct(productid);
+            pageObjectHalamanberanda.setInsertNamaProduct(productToko);
             log.log(Status.PASS,"insert produk yang dicari");
             pageObjectHalamanberanda.clickPilihanTeratasPencarian();
             log.log(Status.PASS,"pilih produk teratas dari daftar pencarian");
@@ -133,21 +133,88 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
         }
     }
 
+    @Test(priority = 3)
+    public void transaksiKolomPencarian2(){
+        String productToko ="10003981", productBDPAAI="", productBDnonPAAI="20100669"
+                , productBDJNE="20074452", productBPJNE="20069260", productBP="20065806"
+                , productDP="20042702", ProductDPJNE="20073427";
+        try {
+            Thread.sleep(5000);
+            PageObjectHalamanBeranda pageObjectHalamanberanda = new PageObjectHalamanBeranda(driver);
+            pageObjectHalamanberanda.clickKolomSearch();
+            log.log(Status.PASS,"tap kolom search pada Beranda");
+            pageObjectHalamanberanda.setInsertNamaProduct(productToko);
+            log.log(Status.PASS,"insert produk yang dicari");
+            pageObjectHalamanberanda.clickPilihanTeratasPencarian();
+            log.log(Status.PASS,"pilih produk teratas dari daftar pencarian");
+
+            PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
+//            pageObjectTransaksi.clickDetailProductToko2();
+            pageObjectTransaksi.clickDetailProductPenjual();
+//            pageObjectTransaksi.clickDetailProductToko1();
+//            pageObjectTransaksi.clickDetailProductKlik1();
+            log.log(Status.PASS,"klik untuk melihat detail produk");
+            Thread.sleep(7000);
+//            pageObjectTransaksi.clickGuideCariTokoygMenjual();
+            log.log(Status.PASS,"tap 'Mengerti' untuk panduan pencarian toko yang menjual produk");
+            Thread.sleep(4000);
+            //===================== SCROLL TO TEXT ======================//
+            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"PLU\").instance(0))"));
+            //===================== SCROLL TO TEXT ======================//
+            Thread.sleep(4000);
+            pageObjectTransaksi.clickButtonBeliProduct();
+            Thread.sleep(5000);
+//            pageObjectTransaksi.clickButtonBeliProduct();
+            Thread.sleep(5000);
+            log.log(Status.PASS,"klik tombol beli untuk menambahkan produk kedalam keranjang belanja");
+            Thread.sleep(3000);
+            driver.navigate().back();
+            Thread.sleep(3000);
+            driver.navigate().back();
+
+            Thread.sleep(5000);
+            PageObjectHalamanBeranda pageObjectHalamanBeranda = new PageObjectHalamanBeranda(driver);
+            String actualProductTitle = pageObjectHalamanBeranda.getTitle();
+            String expectedProductTitle = "Ubah";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
     @Test(priority = 4)
+    public void shoppingCart(){
+        try {
+            Thread.sleep(5000);
+            PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
+            pageObjectTransaksi.clickShoppingCart();
+            log.log(Status.PASS,"klik icon shopping cart untuk pindah ke Halaman Pembayaran");
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickOpenDetailPembayaran();
+            log.log(Status.PASS,"klik list view untuk melihat detail pembayaran");
+
+            Thread.sleep(5000);
+            String actualProductTitle = pageObjectTransaksi.getTextKeranjangBelanja();
+            Thread.sleep(5000);
+            pageObjectTransaksi.clickCloseDetailPembayaran();
+            log.log(Status.PASS,"klik listview untuk menutup detail pembayaran");
+            pageObjectTransaksi.clickKonfirmasiBarangBelanjaan();
+            String expectedProductTitle = "Keranjang Belanja";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 5)
     public void checkOutToko(){
         try {
         Thread.sleep(5000);
         PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
-        pageObjectTransaksi.clickShoppingCart();
-        log.log(Status.PASS,"klik icon shopping cart untuk pindah ke Halaman Pembayaran");
-        Thread.sleep(6000);
-        pageObjectTransaksi.clickOpenDetailPembayaran();
-        log.log(Status.PASS,"klik list view untuk melihat detail pembayaran");
-        Thread.sleep(5000);
-        pageObjectTransaksi.clickCloseDetailPembayaran();
-        log.log(Status.PASS,"klik listview untuk menutup detail pembayaran");
-        pageObjectTransaksi.clickKonfirmasiBarangBelanjaan();
-        log.log(Status.PASS,"klik lanjut untuk konfirmasi barang belanjaan");
         Thread.sleep(4000);
         pageObjectTransaksi.pilihAllowPermissionLocation();
         log.log(Status.PASS,"aplikasi telah diizinkan untuk mengakses lokasi pengguna");
@@ -155,7 +222,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
         pageObjectTransaksi.clickKonfirmasiAlamatPengiriman();
         log.log(Status.PASS,"klik lanjut jika sudah melakukan konfirmasi alamat pengiriman");
 
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         String actualProductTitle = pageObjectTransaksi.getTextPembayaran();
         String expectedProductTitle = "Pembayaran";
         System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
@@ -166,7 +233,85 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
         }
     }
 
-    @Test(priority = 4)
+    @Test(priority = 5)
+    public void checkOutProdukCampur(){
+        try {
+            Thread.sleep(5000);
+            PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
+            Thread.sleep(4000);
+            pageObjectTransaksi.pilihAllowPermissionLocation();
+            log.log(Status.PASS,"aplikasi telah diizinkan untuk mengakses lokasi pengguna");
+            //===================== SCROLL TO TEXT ======================//
+            Thread.sleep(4000);
+            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"Total Pesanan + Ongkos Kirim\").instance(0))"));
+            //===================== SCROLL TO TEXT ======================//
+            Thread.sleep(4000);
+            pageObjectTransaksi.clickPilihMetodeKirimKeAlamat();
+            log.log(Status.PASS,"");
+            pageObjectTransaksi.listviewAlamatKirimKeAlamat();
+            log.log(Status.PASS,"");
+            pageObjectTransaksi.clickPilihAlamatKirimKeAlamat1();
+            log.log(Status.PASS,"");
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickKonfirmasiAlamatPengiriman();
+            log.log(Status.PASS,"klik lanjut jika sudah melakukan konfirmasi alamat pengiriman");
+
+            Thread.sleep(20000);
+            String actualProductTitle = pageObjectTransaksi.getTextPembayaran();
+            String expectedProductTitle = "Pembayaran";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+    @Test(priority = 5)
+    public void checkOutProdukCampurAmbildiToko(){
+        String kodetoko="TWQA";
+        try {
+            Thread.sleep(5000);
+            PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
+            Thread.sleep(4000);
+            pageObjectTransaksi.pilihAllowPermissionLocation();
+            log.log(Status.PASS,"aplikasi telah diizinkan untuk mengakses lokasi pengguna");
+            //===================== SCROLL TO TEXT ======================//
+            Thread.sleep(4000);
+            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"Total Pesanan + Ongkos Kirim\").instance(0))"));
+            //===================== SCROLL TO TEXT ======================//
+            Thread.sleep(4000);
+            pageObjectTransaksi.clickPilihMetodeAmbildiToko();
+            log.log(Status.PASS,"");
+            Thread.sleep(4000);
+            pageObjectTransaksi.listviewAlamatAmbildiToko();
+            log.log(Status.PASS,"");
+            pageObjectTransaksi.btnKolomKodetokoAmbildiToko();
+            log.log(Status.PASS,"");
+            Thread.sleep(6000);
+            pageObjectTransaksi.insertKolomKodetokoAmbildiToko(kodetoko);
+            log.log(Status.PASS,"klik lanjut jika sudah melakukan konfirmasi alamat pengiriman");
+            Thread.sleep(4000);
+            pageObjectTransaksi.pilihTeratasTokoAmbilDiToko();
+            log.log(Status.PASS,"");
+            Thread.sleep(5000);
+            pageObjectTransaksi.clickPilihToko();
+            log.log(Status.PASS,"");
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickKonfirmasiAlamatPengiriman();
+            log.log(Status.PASS,"klik lanjut jika sudah melakukan konfirmasi alamat pengiriman");
+
+            Thread.sleep(20000);
+            String actualProductTitle = pageObjectTransaksi.getTextPembayaran();
+            String expectedProductTitle = "Pembayaran";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 5)
     public void checkOutKlik(){
         try {
             PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
@@ -211,10 +356,11 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
         }
     }
 
-    @Test(priority = 5)
+    @Test(priority = 6)
     public void pembayaranCIMBNiagaRekPon(){
         try{
             PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
+            Thread.sleep(10000);
             //===================== SCROLL TO TEXT ======================//
             Thread.sleep(10000);
             driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"Rekening Ponsel\").instance(0))"));
@@ -236,12 +382,15 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
 //            pageObjectTransaksi.clickPayButtonCIMBRekPon();
             pageObjectTransaksi.clickPayButtonCIMBRekPonXPath();
             log.log(Status.PASS,"klik setuju melakukan pembayaran menggunakan Rekening Ponsel");
+            Thread.sleep(5000);
+            pageObjectTransaksi.clickTutupKonfirmasiPembayaran();
+            log.log(Status.PASS,"");
         }catch (InterruptedException e){
             e.printStackTrace();
         }
     }
 
-    @Test(priority = 5)
+    @Test(priority = 6)
     public void pembayaranVirtualAccountBCA(){
         try{
             PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
@@ -250,12 +399,15 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
             pageObjectTransaksi.clickMetodePembayaranVirtualAccountBCA();
             Thread.sleep(6000);
             pageObjectTransaksi.clickPayNow();
+            Thread.sleep(5000);
+            pageObjectTransaksi.clickTutupKonfirmasiPembayaran();
+            log.log(Status.PASS,"");
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    @Test(priority = 5)
+    @Test(priority = 6)
     public void pembayaranVirtualAccountLainnya(){
         try{
             PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
@@ -269,7 +421,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
         }
     }
 
-    @Test(priority = 5)
+    @Test(priority = 6)
     public void pembayaranBCAKlikPay(){
         try{
             PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
@@ -283,7 +435,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
         }
     }
 
-    @Test(priority = 5)
+    @Test(priority = 6)
     public void pembayaranAkuLaku(){
         try{
             PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
@@ -297,7 +449,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
         }
     }
 
-    @Test(priority = 5)
+    @Test(priority = 6)
     public void pembayaranKartuKreditBCA(){
         try{
             PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
@@ -320,7 +472,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
         }
     }
 
-    @Test(priority = 5)
+    @Test(priority = 6)
     public void pembayaranPaymentPointIndomaret(){
         try{
             PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
@@ -345,7 +497,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
         }
     }
 
-    @Test(priority = 5)
+    @Test(priority = 6)
     public void pembayaranLinkAja(){
         try{
             PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);

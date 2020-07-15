@@ -10,7 +10,7 @@
                     <include name="transaksiKolomPencarian"></include>
                     <include name="transaksiKolomPencarian2"></include>
                     <include name="shoppingCart"></include>
-                    <include name="checkOutProdukCampur"></include>
+                    <include name="checkOutProdukCampurAmbildiToko"></include>
                     <include name="pembayaranCIMBNiagaRekPon"></include>
                 </methods>
             </class>
