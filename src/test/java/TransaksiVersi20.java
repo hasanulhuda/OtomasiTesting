@@ -97,7 +97,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
     }
 
     @Test(priority = 3)
-    public void transaksiKolomPencarian(){
+    public void addProductToCart(){
         String productToko ="10017288", productBDPAAI="", productBDnonPAAI="20100669"
                 , productBDJNE="20074452", productBPJNE="20069260", productBP="20065806"
                 , productDP="20042702", ProductDPJNE="20073427";
@@ -156,8 +156,126 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
     }
 
     @Test(priority = 3)
-    public void transaksiKolomPencarian2(){
+    public void addProductToCart2(){
         String productToko ="10003981", productBDPAAI="", productBDnonPAAI="20100669"
+                , productBDJNE="20074452", productBPJNE="20069260", productBP="20065806"
+                , productDP="20042702", ProductDPJNE="20073427";
+        try {
+            Thread.sleep(5000);
+            PageObjectHalamanBeranda pageObjectHalamanberanda = new PageObjectHalamanBeranda(driver);
+            pageObjectHalamanberanda.clickKolomSearch();
+            log.log(Status.PASS,"tap kolom search pada Beranda");
+            Reporter.log("tap kolom search pada Beranda Berhasil");
+            pageObjectHalamanberanda.setInsertNamaProduct(productToko);
+            log.log(Status.PASS,"insert produk yang dicari");
+            Reporter.log("insert produk dengan kode PLU="+productToko+" Berhasil");
+            pageObjectHalamanberanda.clickPilihanTeratasPencarian();
+            log.log(Status.PASS,"pilih produk teratas dari daftar pencarian");
+            Reporter.log("tap pilihan teratas pada pencarian produk");
+
+            PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
+//            pageObjectTransaksi.clickDetailProductToko2();
+            pageObjectTransaksi.clickDetailProductPenjual();
+//            pageObjectTransaksi.clickDetailProductToko1();
+//            pageObjectTransaksi.clickDetailProductKlik1();
+            log.log(Status.PASS,"klik untuk melihat detail produk");
+            Reporter.log("Halaman Detail produk dengan PLU= "+productToko+" Berhasil dibuka");
+            Thread.sleep(7000);
+//            pageObjectTransaksi.clickGuideCariTokoygMenjual();
+            log.log(Status.PASS,"tap 'Mengerti' untuk panduan pencarian toko yang menjual produk");
+            Reporter.log("tap 'Mengerti' untuk panduan pencarian toko yang menjual produk");
+            Thread.sleep(4000);
+            //===================== SCROLL TO TEXT ======================//
+            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"PLU\").instance(0))"));
+            //===================== SCROLL TO TEXT ======================//
+            Thread.sleep(4000);
+            pageObjectTransaksi.clickButtonBeliProduct();
+            Reporter.log("produk dengan PLU= "+productToko+" Berhasil dimasukkan kedalam Keranjang");
+            Thread.sleep(5000);
+//            pageObjectTransaksi.clickButtonBeliProduct();
+//            Reporter.log("produk dengan PLU= "+productToko+" Berhasil dimasukkan kedalam Keranjang");
+//            Thread.sleep(5000);
+            log.log(Status.PASS,"klik tombol beli untuk menambahkan produk kedalam keranjang belanja");
+            Thread.sleep(3000);
+            driver.navigate().back();
+            Thread.sleep(3000);
+            driver.navigate().back();
+            Reporter.log("Kembali ke Halaman Awal/Beranda");
+
+            Thread.sleep(5000);
+            PageObjectHalamanBeranda pageObjectHalamanBeranda = new PageObjectHalamanBeranda(driver);
+            String actualProductTitle = pageObjectHalamanBeranda.getTitle();
+            String expectedProductTitle = "Ubah";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 3)
+    public void addProductToCart3(){
+        String productToko ="10040192", productBDPAAI="", productBDnonPAAI="20100669"
+                , productBDJNE="20074452", productBPJNE="20069260", productBP="20065806"
+                , productDP="20042702", ProductDPJNE="20073427";
+        try {
+            Thread.sleep(5000);
+            PageObjectHalamanBeranda pageObjectHalamanberanda = new PageObjectHalamanBeranda(driver);
+            pageObjectHalamanberanda.clickKolomSearch();
+            log.log(Status.PASS,"tap kolom search pada Beranda");
+            Reporter.log("tap kolom search pada Beranda Berhasil");
+            pageObjectHalamanberanda.setInsertNamaProduct(productToko);
+            log.log(Status.PASS,"insert produk yang dicari");
+            Reporter.log("insert produk dengan kode PLU="+productToko+" Berhasil");
+            pageObjectHalamanberanda.clickPilihanTeratasPencarian();
+            log.log(Status.PASS,"pilih produk teratas dari daftar pencarian");
+            Reporter.log("tap pilihan teratas pada pencarian produk");
+
+            PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
+//            pageObjectTransaksi.clickDetailProductToko2();
+//            pageObjectTransaksi.clickDetailProductPenjual();
+            pageObjectTransaksi.clickDetailProductToko1();
+//            pageObjectTransaksi.clickDetailProductKlik1();
+            log.log(Status.PASS,"klik untuk melihat detail produk");
+            Reporter.log("Halaman Detail produk dengan PLU= "+productToko+" Berhasil dibuka");
+            Thread.sleep(7000);
+//            pageObjectTransaksi.clickGuideCariTokoygMenjual();
+            log.log(Status.PASS,"tap 'Mengerti' untuk panduan pencarian toko yang menjual produk");
+            Reporter.log("tap 'Mengerti' untuk panduan pencarian toko yang menjual produk");
+            Thread.sleep(4000);
+            //===================== SCROLL TO TEXT ======================//
+            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"PLU\").instance(0))"));
+            //===================== SCROLL TO TEXT ======================//
+            Thread.sleep(4000);
+            pageObjectTransaksi.clickButtonBeliProduct();
+            Reporter.log("produk dengan PLU= "+productToko+" Berhasil dimasukkan kedalam Keranjang");
+            Thread.sleep(5000);
+//            pageObjectTransaksi.clickButtonBeliProduct();
+//            Reporter.log("produk dengan PLU= "+productToko+" Berhasil dimasukkan kedalam Keranjang");
+//            Thread.sleep(5000);
+            log.log(Status.PASS,"klik tombol beli untuk menambahkan produk kedalam keranjang belanja");
+            Thread.sleep(3000);
+            driver.navigate().back();
+            Thread.sleep(3000);
+            driver.navigate().back();
+            Reporter.log("Kembali ke Halaman Awal/Beranda");
+
+            Thread.sleep(5000);
+            PageObjectHalamanBeranda pageObjectHalamanBeranda = new PageObjectHalamanBeranda(driver);
+            String actualProductTitle = pageObjectHalamanBeranda.getTitle();
+            String expectedProductTitle = "Ubah";
+            System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+            Assert.assertEquals(actualProductTitle,expectedProductTitle);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 3)
+    public void addProductToCart4(){
+        String productToko ="20091102", productBDPAAI="", productBDnonPAAI="20100669"
                 , productBDJNE="20074452", productBPJNE="20069260", productBP="20065806"
                 , productDP="20042702", ProductDPJNE="20073427";
         try {
