@@ -7,8 +7,10 @@
                 <methods>
                     <include name="halamanAwalKodePos"></include>
                     <include name="loginSuccessfull"></include>
-                    <include name="transaksiKolomPencarian"></include>
-                    <include name="transaksiKolomPencarian2"></include>
+                    <include name="addProductToCart"></include>
+                    <include name="addProductToCart2"></include>
+<!--                    <include name="addProductToCart3"></include>-->
+<!--                    <include name="addProductToCart4"></include>-->
                     <include name="shoppingCart"></include>
                     <include name="checkOutProdukCampur"></include>
                     <include name="pembayaranCIMBNiagaRekPon"></include>
