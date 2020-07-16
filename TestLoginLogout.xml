@@ -7,7 +7,7 @@
                 <methods>
                     <include name="halamanAwalKodePos"></include>
                     <include name="loginSuccessfull"></include>
-                    <include name="logOutVersi20"></include>
+<!--                    <include name="logOutVersi20"></include>-->
                 </methods>
             </class>
         </classes>

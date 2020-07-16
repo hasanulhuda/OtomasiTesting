@@ -5,8 +5,11 @@ utils\TestUtils.class
 reports\ExtentReportsDemo.class
 koneksi\Koneksi.class
 pages\PageObjectWishlist.class
+pages\PageObjectHalamanTransaksiBeta15.class
 pages\PageObjectHalamanBeranda.class
 pages\PageObjectHalamanLogin.class
+pages\PageObjectHalamanPersonalBeta15.class
+koneksi\KoneksiKlik.class
 pages\PageObjectTransaksi.class
 pages\PageObjectHalamanAwal.class
 pages\PageObjectHalamanKategori.class
