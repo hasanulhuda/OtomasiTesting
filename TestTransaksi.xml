@@ -9,7 +9,7 @@
                     <include name="loginSuccessfull"></include>
                     <include name="addProductToCart"></include>
 <!--                    <include name="addProductToCart2"></include>-->
-                    <include name="addProductToCart3"></include>
+<!--                    <include name="addProductToCart3"></include>-->
 <!--                    <include name="addProductToCart4"></include>-->
                     <include name="shoppingCart"></include>
                     <include name="checkOutProdukCampur"></include>
