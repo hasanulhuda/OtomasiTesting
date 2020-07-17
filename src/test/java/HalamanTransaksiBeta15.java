@@ -1,6 +1,7 @@
 import com.aventstack.extentreports.Status;
 import io.appium.java_client.android.AndroidDriver;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 import pages.*;
 import reports.ExtentReportsDemo;
@@ -16,23 +17,32 @@ public class HalamanTransaksiBeta15 extends ExtentReportsDemo {
     @Test(priority = 1)
     public void halamanAwalKodePos(){
         try {
-            Thread.sleep(7000);
+            Thread.sleep(15000);
             PageObjectHalamanAwal pageObjectHalamanAwal = new PageObjectHalamanAwal(driver);
-            pageObjectHalamanAwal.clickOnGuide1();
-            Thread.sleep(7000);
+            pageObjectHalamanAwal.clickOnGuide1Versi20();
             log.log(Status.PASS,"Object Guide Pengguna Pertama");
-            pageObjectHalamanAwal.clickOnGuide2();
+            Reporter.log("Object Guide Pengguna Pertama Berhasil di Tap");
+            Thread.sleep(5000);
+            pageObjectHalamanAwal.clickOnGuide2Versi20();
             log.log(Status.PASS,"Object Guide Pengguna Kedua");
+            Reporter.log("Object Guide Pengguna Kedua Berhasil diTap");
+            pageObjectHalamanAwal.clickOnGuide2();
+            log.log(Status.PASS,"Klik Button Ubah pada Halaman Utama");
+            Reporter.log("Klik Button Ubah pada Halaman Utama Berhasil diTap");
             pageObjectHalamanAwal.clickButtonKodePos();
             log.log(Status.PASS,"Button Untuk Input lokasi menggunakan Kode POS");
+            Reporter.log("listview Metode Lokasi dengan Kode POS berhasil diTap");
             pageObjectHalamanAwal.setInsertKodePos(kodepos);
             log.log(Status.PASS,"inputan untuk mencari Wilayah Menggunakan Kode POS");
+            Reporter.log("kode pos ="+kodepos+" Berhasil diinput");
             pageObjectHalamanAwal.clickPilihanKodePos();
             log.log(Status.PASS,"tampilan teratas untuk Wilayah yang dicari");
+            Reporter.log("kode pos ="+kodepos+" Berhasil dipilih");
 
             PageObjectHalamanLogin pageObjectHalamanLogin = new PageObjectHalamanLogin(driver);
             pageObjectHalamanLogin.clickHalamanLogin();
             log.log(Status.PASS,"Memilih Lokasi berdasar Kode Wilayah Berhasil");
+            Reporter.log("Memilih Lokasi berdasar Kode Wilayah Berhasil");
 
             Thread.sleep(5000);
             String actualProductTitle = pageObjectHalamanLogin.getTitlekHalamanLogin();
@@ -40,6 +50,7 @@ public class HalamanTransaksiBeta15 extends ExtentReportsDemo {
             System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
 
             Assert.assertEquals(actualProductTitle,expectedProductTitle);
+            Reporter.getCurrentTestResult();
         }catch (InterruptedException e){
             e.printStackTrace();
         }
