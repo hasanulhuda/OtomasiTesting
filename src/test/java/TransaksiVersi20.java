@@ -137,9 +137,9 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
             Reporter.log("produk dengan PLU= "+productToko+" Berhasil dimasukkan kedalam Keranjang");
             Thread.sleep(5000);
             log.log(Status.PASS,"klik tombol beli untuk menambahkan produk kedalam keranjang belanja");
-            Thread.sleep(3000);
+            Thread.sleep(5000);
             driver.navigate().back();
-            Thread.sleep(3000);
+            Thread.sleep(5000);
             driver.navigate().back();
             Reporter.log("Kembali ke Halaman Awal/Beranda");
 
@@ -175,9 +175,9 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
 
             PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
 //            pageObjectTransaksi.clickDetailProductToko2();
-            pageObjectTransaksi.clickDetailProductPenjual();
+//            pageObjectTransaksi.clickDetailProductPenjual();
 //            pageObjectTransaksi.clickDetailProductToko1();
-//            pageObjectTransaksi.clickDetailProductKlik1();
+            pageObjectTransaksi.clickDetailProductKlik1();
             log.log(Status.PASS,"klik untuk melihat detail produk");
             Reporter.log("Halaman Detail produk dengan PLU= "+productToko+" Berhasil dibuka");
             Thread.sleep(7000);
