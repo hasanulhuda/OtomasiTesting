@@ -157,7 +157,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
 
     @Test(priority = 3)
     public void addProductToCart2(){
-        String productToko ="10003981", productBDPAAI="", productBDnonPAAI="20100669"
+        String productToko ="20091108", productBDPAAI="", productBDnonPAAI="20100669"
                 , productBDJNE="20074452", productBPJNE="20069260", productBP="20065806"
                 , productDP="20042702", ProductDPJNE="20073427";
         try {
