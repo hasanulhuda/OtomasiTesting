@@ -10,7 +10,7 @@ public class PageObjectTransaksi extends BasePage{
         super(driver);
     }
 
-    @AndroidFindBy(xpath = "//android.widget.Button[@content-desc=\"Bayar Sekarang\"]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[3]/android.widget.Button")
     private AndroidElement btnPayNow;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.Button[2]")
     private AndroidElement allowPermission;
@@ -210,6 +210,14 @@ public class PageObjectTransaksi extends BasePage{
 
 //region Payment Method
 
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView")
+    private AndroidElement textKonfirmasiPembayaran;
+
+    public String getTextKonfirmasiPembayaran() throws InterruptedException{
+        waitForVisibility(textKonfirmasiPembayaran);
+        return getAttribute(textKonfirmasiPembayaran,"Text");
+    }
+
     //region 1. CIMB Rekening Ponsel
     //===================== Metode Pembayaran CIMB Rekening Ponsel ======================//
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View[4]/android.view.View[2]/android.view.View[2]/android.view.View[2]")
@@ -256,7 +264,7 @@ public class PageObjectTransaksi extends BasePage{
     //endregion
 
     //region 2. Virtual Account
-    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"BCA Virtual Account\"]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View[2]/android.view.View[1]")
     private AndroidElement listVirtualBCA;
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Virtual Account Lainnya\"]")
     private AndroidElement listVirtualLainnya;
@@ -274,20 +282,24 @@ public class PageObjectTransaksi extends BasePage{
     //region 3. BCA KlikPay
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"BCA KlikPay\"]")
     private AndroidElement listBCAKlikPay;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View[3]/android.view.View")
+    private AndroidElement listBCAKlikPayxPath;
 
     public void clickMetodePembayaranBCAKlikPay() throws InterruptedException{
-        waitForVisibility(listBCAKlikPay);
-        listBCAKlikPay.click();
+        waitForVisibility(listBCAKlikPayxPath);
+        listBCAKlikPayxPath.click();
     }
     //endregion
 
     //region 4. Akulaku
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Akulaku\"]")
     private AndroidElement listAkulaku;
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View[4]/android.view.View")
+    private AndroidElement listAkulakuxPath;
 
     public void clickMetodePembayaranAkuLaku() throws InterruptedException{
-        waitForVisibility(listAkulaku);
-        listAkulaku.click();
+        waitForVisibility(listAkulakuxPath);
+        listAkulakuxPath.click();
     }
     //endregion
 
@@ -318,6 +330,26 @@ public class PageObjectTransaksi extends BasePage{
     public void clickMetodePembayaranLinkAja() throws InterruptedException {
         waitForVisibility(listLinkAja);
         listLinkAja.click();
+    }
+    //endregion
+
+    //region 8. Kartu Kredit/Debit BNI
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[2]/android.view.View[5]/android.view.View[2]")
+    private AndroidElement listKartuKreditBNI;
+
+    public void clickMetodePembayaranKartuKreditBNI() throws InterruptedException {
+        waitForVisibility(listKartuKreditBNI);
+        listKartuKreditBNI.click();
+    }
+    //endregion
+
+    //region 9. Kartu Kredit/Debit Mandiri
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View[3]")
+    private AndroidElement listKartuKreditMandiri;
+
+    public void clickMetodePembayaranKartuKreditMandiri() throws InterruptedException {
+        waitForVisibility(listKartuKreditMandiri);
+        listKartuKreditMandiri.click();
     }
     //endregion
 
