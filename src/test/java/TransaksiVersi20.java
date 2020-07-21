@@ -340,7 +340,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
             pageObjectTransaksi.clickShoppingCart();
             log.log(Status.PASS,"klik icon shopping cart untuk pindah ke Halaman Pembayaran");
             Reporter.log("klik icon shopping cart untuk pindah ke Halaman Pembayaran");
-            Thread.sleep(6000);
+            Thread.sleep(10000);
             pageObjectTransaksi.clickOpenDetailPembayaran();
             log.log(Status.PASS,"klik list view untuk melihat detail pembayaran");
             Reporter.log("klik list view untuk melihat detail pembayaran");
@@ -465,7 +465,7 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
             Reporter.log("tap Button Konfirmasi Metode dan Alamat pengiriman sekaligus pindah ke Halaman Pembayaran");
             log.log(Status.PASS,"klik lanjut jika sudah melakukan konfirmasi alamat pengiriman");
 
-            Thread.sleep(20000);
+            Thread.sleep(30000);
             String actualProductTitle = pageObjectTransaksi.getTextPembayaran();
             String expectedProductTitle = "Pembayaran";
             System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
@@ -480,19 +480,8 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
     public void checkOutKlik(){
         try {
             PageObjectTransaksi pageObjectTransaksi = new PageObjectTransaksi(driver);
-            pageObjectTransaksi.clickShoppingCart();
-            log.log(Status.PASS,"klik icon shopping cart untuk pindah ke Halaman Pembayaran");
-            Thread.sleep(6000);
-            pageObjectTransaksi.clickOpenDetailPembayaran();
-            log.log(Status.PASS,"klik list view untuk melihat detail pembayaran");
-            Thread.sleep(5000);
-            pageObjectTransaksi.clickCloseDetailPembayaran();
-            log.log(Status.PASS,"klik listview untuk menutup detail pembayaran");
-            pageObjectTransaksi.clickKonfirmasiBarangBelanjaan();
-            log.log(Status.PASS,"Barang Belanjaan Telah dikonfirmasi");
             Thread.sleep(4000);
             pageObjectTransaksi.pilihAllowPermissionLocation();
-            log.log(Status.PASS,"aplikasi telah diizinkan untuk mengakses lokasi pengguna");
             Thread.sleep(6000);
             pageObjectTransaksi.clickListDaftarAlamatUser();
             log.log(Status.PASS,"Daftar Alamat berhasil ditampilkan");
@@ -503,18 +492,19 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
             pageObjectTransaksi.clickKonfirmasiAlamatPengiriman();
             log.log(Status.PASS,"Alamat Berhasil dikonfirmasi");
 
-            Thread.sleep(5000);
-            String actualErrorText = pageObjectTransaksi.getErrorTextCheckOut();
-            String expectedErrorText = "Mohon maaf, alamat pengiriman yang Anda pilih saat ini belum dapat dilayani. Silahkan pilih alamat lainnya";
+            Thread.sleep(30000);
+            String actualProductTitle = pageObjectTransaksi.getTextPembayaran();
+            String expectedProductTitle = "Pembayaran";
 
-            if(actualErrorText == expectedErrorText){
-                pageObjectTransaksi.clickButtonErrorCheckOutNotification();
+            if(actualProductTitle.equals(expectedProductTitle)){
+                System.out.println("Berhasil Yeay!!");
             }else {
-                String actualProductTitle = pageObjectTransaksi.getTextPembayaran();
-                String expectedProductTitle = "Pembayaran";
-                Assert.assertEquals(actualProductTitle,expectedProductTitle);
+                String actualErrorText = pageObjectTransaksi.getErrorTextCheckOut();
+                String expectedErrorText = "Mohon maaf, alamat pengiriman yang Anda pilih saat ini belum dapat dilayani. Silahkan pilih alamat lainnya";
 
-                System.out.println("actual title -"+actualProductTitle+"\n"+"expected title -"+expectedProductTitle);
+
+                Assert.assertEquals(actualErrorText,expectedErrorText);
+                System.out.println("actual title -"+actualErrorText+"\n"+"expected title -"+expectedErrorText);
             }
         } catch (InterruptedException e){
             e.printStackTrace();
@@ -570,8 +560,14 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
             Thread.sleep(6000);
             pageObjectTransaksi.clickPayNow();
             Thread.sleep(5000);
-            pageObjectTransaksi.clickTutupKonfirmasiPembayaran();
+//            pageObjectTransaksi.clickTutupKonfirmasiPembayaran();
             log.log(Status.PASS,"");
+
+            String actualTitle = pageObjectTransaksi.getTextKonfirmasiPembayaran();
+            String expectedTitle = "Konfirmasi Pembayaran";
+            System.out.println("actual text is -"+actualTitle+"\n"+"expected text is-"+expectedTitle);
+
+            Assert.assertEquals(actualTitle,expectedTitle);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -684,6 +680,40 @@ public class TransaksiVersi20 extends ExtentReportsDemo {
             log.log(Status.PASS,"melakukan Scroll hingga 'LinkAja' tampil pada Tampilan Layar");
             Thread.sleep(10000);
             pageObjectTransaksi.clickMetodePembayaranLinkAja();
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickPayNow();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 6)
+    public void pembayaranKartuKreditBNI(){
+        try{
+            PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
+            //===================== SCROLL TO TEXT ======================//
+            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"Kartu Kredit/Debit Online BNI\").instance(0))"));
+            //===================== SCROLL TO TEXT ======================//
+            log.log(Status.PASS,"melakukan Scroll hingga 'LinkAja' tampil pada Tampilan Layar");
+            Thread.sleep(10000);
+            pageObjectTransaksi.clickMetodePembayaranKartuKreditBNI();
+            Thread.sleep(6000);
+            pageObjectTransaksi.clickPayNow();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 6)
+    public void pembayaranKartuKreditMandiri(){
+        try{
+            PageObjectTransaksi pageObjectTransaksi= new PageObjectTransaksi(driver);
+            //===================== SCROLL TO TEXT ======================//
+            driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\"Kartu Kredit/Debit Online Mandiri\").instance(0))"));
+            //===================== SCROLL TO TEXT ======================//
+            log.log(Status.PASS,"melakukan Scroll hingga 'LinkAja' tampil pada Tampilan Layar");
+            Thread.sleep(10000);
+            pageObjectTransaksi.clickMetodePembayaranKartuKreditMandiri();
             Thread.sleep(6000);
             pageObjectTransaksi.clickPayNow();
         }catch (Exception e){
